@@ -76,6 +76,7 @@ nav ul li {
 	'padding: 1em 0 1em 0.5em;
 	position: relative;
 	font-family: "Rockwell Extra Bold", "Rockwell", "Lucida Sans Typewriter", "Segoe UI", sans-serif;
+	padding-right: 10px;
 }
 
 nav ul li:hover {
@@ -158,6 +159,11 @@ Story {
 	background: rgba(0, 0, 0, 0.2);
 }
 
+
+/******************/
+/* REPORT STYLING */
+/******************/
+
 .report {
 	display: inherit;
 	overflow-y: auto;
@@ -207,11 +213,16 @@ ReportHeader:after {
 	color: white;
 }
 
+.section p a {
+	color: #9F6666;
+	text-decoration: none;
+}
+
 CompanyName {
 	display: block;
 	text-align: center;
 	font-size: 5.0vmin;
-	font-family:  Copperplate / Copperplate Gothic Light, sans-serif;
+	font-family:  "Copperplate", "Copperplate Gothic Light", sans-serif;
 }
 
 Term {
@@ -289,7 +300,7 @@ learningGoals goal {
 
 learningGoals goal goalTitle {
 	text-transform: capitalize;
-	font-family: "Century Gothic", "Franklin Gothic Medium", serif;
+	font-family: "Century Gothic", "Franklin Gothic Medium", sans-serif;
 }
 
 learningGoals goal goalTitle:after {
