@@ -58,7 +58,8 @@ function hide_all_reports() {
 		'HomeReport',
 		'ContactReport',
 		'TransPlusF2014',
-		'TransPlusS2015'
+		'TransPlusS2015',
+		'LionRunReport'
 	];
 
 	var element;
