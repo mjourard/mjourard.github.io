@@ -1,0 +1,36 @@
+<div id="TransPlusF2014" class="report" style="display:none;">
+    <ReportHeader>
+        <CompanyName>Trans Plus</CompanyName>
+        <term>Fall 2014</term>
+    </ReportHeader>
+    <ReportBody>
+        <aboutSection class="section">
+            <sectionHead>About</sectionHead>
+            <p>Trans Plus is a software company specializing in Windows-based transportation software that was founded in Guelph. They have a flagship program called ‘Fleet Manager’ that is used by trucking companies to manage the logistics of their truck fleets. As a development company, they utilize the scrum methodology to push out new features in a timely manner.</p>
+        </aboutSection>
+        <introduction class="section">
+            <sectionHead>Introduction</sectionHead>
+            <p>My first term at Trans Plus started with three weeks of quartet programming sessions. They had just hired two new people so the development manager decided to train me with them. During the three weeks, we were completing our implementation of the OAuth 2.0 spec. This exposed me to developing in C# as well as many tricks that can be done with Visual Studio and Team Foundation Server. These training sessions prepared me for my role as a junior developer as well as the primary defect solver. </p>
+        </introduction>
+        <jobDescription class="section">
+            <sectionHead>Job Description</sectionHead>
+            <p>As a junior developer and the primary defect solver, it was my job to complete user stories on a weekly basis as well as fix any defects that came in.  The stories I worked on were components to the refurbished automatic updates system that would be used in the next big release of Fleet Manager. The new automatic updates system would publish any database changes made during that development iteration as well as the current functionality of updating Fleet Manager to the latest version.</p>
+            <p>My job as the primary defect solver was to monitor the two channels of defects we had and to fix any that were submitted in a timely manner. The two channels we had were customers contacting our product services department and a web service that would send us a crash report whenever Fleet Manager crashed. The product services channel would provide steps to reproduce the bug most of the time while the web service would provide a stack trace as well as tracing information. </p>
+        </jobDescription>
+        <mainFocus class="section">
+            <sectionHead>Main Focus</sectionHead>
+            <p>The main focus of my term was completing the automatic updates service for the next major release of Fleet Manager. It was a Windows service that would be automatically detected by Fleet Manager, and wouldn’t allow you to login if more than one instance of the service was found. It had to work with the existing database versioning system in place (a one-to-many relationship between database version and software version).  It would receive the software updates from our web service at Trans Plus and then distribute the updates to all instances of Fleet Manager on the local network that contacted it.</p>
+        </mainFocus>
+        <learningGoals class="section">
+            <sectionHead>Learning Goals</sectionHead>
+            <goal>
+                <goalTitle>Implement a web service call that goes through the layers of Fleet Manager</goalTitle>
+                <p>At Trans Plus, we were starting to adopt usage of both an n-tiered design of Fleet Manager to better abstract the database from the front end as well as the use of web services to try to transition into a web-app design. I wanted to understand the both of these technologies to be able to implement stories faster and to be a better developer. One of my goals was to actually implement a web service that went through the entire five-tier system. I was unable to actually work on a story that required a new web service, as most of the stories I worked on were related to getting an existing web service up and running, however I did read a good portion of the book “Expert CSharp 2008 Business Objects” which contained a very detailed explanation of the implementation of an n-tier system using the .NET framework.</p>
+            </goal>
+            <goal>
+                <goalTitle>Make a browser version of Dr. Mario to learn more about web technologies</goalTitle>
+                <p>As part of the web development training at Trans Plus, one of the activities was to build the front-end for the game Dr. Mario using html5, css3 and javascript. This was to prepare any current developers for the eventual transition to a web-app version of Fleet Manager. That transition never happened, so the training was made optional and I was never able to get to it due to having other priorities at work. I did, however, gain experience using the angular 1.X framework with html5 and css3 to build a web app for my CIS3750 class.</p>
+            </goal>
+        </learningGoals>
+    </ReportBody>
+</div>

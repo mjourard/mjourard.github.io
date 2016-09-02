@@ -6,247 +6,61 @@
         <title>Enjoy Your Stay</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="js/csspopup.js"></script>
-		<link href="css/main.css" rel="stylesheet"/>
+        <script type="text/javascript" src="js/main.js"></script>
+        <!--<script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>-->
+        <script type="text/javascript" src="vendor/components/jquery/jquery.js"></script>
+		<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
 		<link rel="shortcut icon" type="image/x-icon" href="img/faviconV2.ico">
+        <link type="text/css" href="css/justified-nav.css">
+
     </head>
-    <body onload="displayReport('HomeReport')">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <body>
+        <div class="include" id="nav.html"></div>
+        	<!--<writtenContent>-->
+	        	<!--<IntroBlurb>-->
+	        		<!--<name>Matthew Jourard</name>-->
+	        		<!--<ul>-->
+	        			<!--<li>Developer. </li>-->
+	        			<!--<li>Student. </li>-->
+	        			<!--<li>Designer. </li>-->
+	        		<!--</ul>-->
+	           	<!--</IntroBlurb>-->
+	        	<!--<Story>-->
+					<!--<div id="HomeReport" class="report" style="display:none;">-->
+						<!--<ReportHeader>-->
+							<!--<CompanyName>Professional Bio</CompanyName>-->
+						<!--</ReportHeader>-->
+						<!--<ReportBody>-->
+							<!--<aboutSection class="section">-->
+								<!--<sectionHead>About</sectionHead>-->
+								<!--<p>My name is Matthew Jourard. I'm a fourth year Computer Science major at the University of Guelph. I have professional experience in building and maintaining windows-based products and personal experience in building web-based projects. I'm still on the journey of discovering what I like best to develop and specialize in.</p>-->
+							<!--</aboutSection>-->
+						<!--</ReportBody>-->
+			       <!--</div> &lt;!&ndash;End of HomeReport&ndash;&gt;-->
+			        <!--<div id="ContactReport" class="report" style="display:none;">-->
+			        	<!--<ReportHeader>-->
+			        		<!--<CompanyName>Contact Me</CompanyName>-->
+			        	<!--</ReportHeader>-->
+			        	<!--<ReportBody>-->
+			        		<!--<aboutSection class="section">-->
+			        			<!--<p><a href="mailto:mjourard@mail.uoguelph.ca" title="mjourard@mail.uoguelph.ca">Email Me!</a></p>-->
+			        		<!--</aboutSection>-->
+			        	<!--</ReportBody>-->
+			        	<!--&lt;!&ndash;Undecided as to whether this should be included or not...<PhoneNumber>(647) - 201 - 7174</PhoneNumber></p>&ndash;&gt;-->
+			        <!--</div> &lt;!&ndash;End of ContactReport&ndash;&gt;-->
 
-        <!-- Add your site or application content here -->
-        <main>
-        	<nav>
-        		<ul>
-        			<!--<li><a href="#">Home</a></li>-->
-        			<li><a href="#" onclick="displayReport('HomeReport')">Home</a></li>
-        			<li><a href="https://github.com/mjourard">Git Hub</a></li>
-        			<li><a href="#" onclick="displayReport('ContactReport')">Contact Me</a></li>
-        			<li>
-        				<a href="#">Co-op Reports &raquo;</a>
-        				<ul id="Co-opWriteups">
-        					<li><a href="#" onclick="displayReport('TransPlusF2014')">Trans Plus - Fall 2014</a></li>
-        					<li><a href="#" onclick="displayReport('TransPlusS2015')">Trans Plus - Summer 2015</a></li>
-							<li><a href="#" onclick="displayReport('AdknownW2016')">Adknown - Winter 2016</a></li>
-        				</ul>
-        			</li>
-        			<li><a href="#" onclick="displayReport('LionRunReport')">Lion Run</a></li>
-        			<!--<li>Live Projects - Soon</li>-->
 
-        		</ul>
-        	</nav>
-        	<writtenContent>
-	        	<IntroBlurb>
-	        		<name>Matthew Jourard</name>
-	        		<ul>
-	        			<li>Developer. </li>
-	        			<li>Student. </li>
-	        			<li>Designer. </li>
-	        		</ul>
-	           	</IntroBlurb>
-	        	<Story>
-					<div id="HomeReport" class="report" style="display:none;">
-						<ReportHeader>
-							<CompanyName>Professional Bio</CompanyName>
-						</ReportHeader>
-						<ReportBody>
-							<aboutSection class="section">
-								<sectionHead>About</sectionHead>
-								<p>My name is Matthew Jourard. I'm a fourth year Computer Science major at the University of Guelph. I have professional experience in building and maintaining windows-based products and personal experience in building web-based projects. I'm still on the journey of discovering what I like best to develop and specialize in.</p>
-							</aboutSection>
-						</ReportBody>
-			       </div> <!--End of HomeReport-->
-			        <div id="ContactReport" class="report" style="display:none;">
-			        	<ReportHeader>
-			        		<CompanyName>Contact Me</CompanyName>
-			        	</ReportHeader>
-			        	<ReportBody>
-			        		<aboutSection class="section">
-			        			<p><a href="mailto:mjourard@mail.uoguelph.ca" title="mjourard@mail.uoguelph.ca">Email Me!</a></p>
-			        		</aboutSection>
-			        	</ReportBody>
-			        	<!--Undecided as to whether this should be included or not...<PhoneNumber>(647) - 201 - 7174</PhoneNumber></p>-->
-			        </div> <!--End of ContactReport-->
-					<div id="TransPlusF2014" class="report" style="display:none;">
-						<ReportHeader>
-							<CompanyName>Trans Plus</CompanyName>
-							<term>Fall 2014</term>
-						</ReportHeader>
-						<ReportBody>
-							<aboutSection class="section">
-								<sectionHead>About</sectionHead>
-								<p>Trans Plus is a software company specializing in Windows-based transportation software that was founded in Guelph. They have a flagship program called ‘Fleet Manager’ that is used by trucking companies to manage the logistics of their truck fleets. As a development company, they utilize the scrum methodology to push out new features in a timely manner.</p>
-							</aboutSection>
-							<introduction class="section">
-								<sectionHead>Introduction</sectionHead>
-								<p>My first term at Trans Plus started with three weeks of quartet programming sessions. They had just hired two new people so the development manager decided to train me with them. During the three weeks, we were completing our implementation of the OAuth 2.0 spec. This exposed me to developing in C# as well as many tricks that can be done with Visual Studio and Team Foundation Server. These training sessions prepared me for my role as a junior developer as well as the primary defect solver. </p>
-							</introduction>
-							<jobDescription class="section">
-								<sectionHead>Job Description</sectionHead>
-								<p>As a junior developer and the primary defect solver, it was my job to complete user stories on a weekly basis as well as fix any defects that came in.  The stories I worked on were components to the refurbished automatic updates system that would be used in the next big release of Fleet Manager. The new automatic updates system would publish any database changes made during that development iteration as well as the current functionality of updating Fleet Manager to the latest version.</p>
-								<p>My job as the primary defect solver was to monitor the two channels of defects we had and to fix any that were submitted in a timely manner. The two channels we had were customers contacting our product services department and a web service that would send us a crash report whenever Fleet Manager crashed. The product services channel would provide steps to reproduce the bug most of the time while the web service would provide a stack trace as well as tracing information. </p>
-							</jobDescription>
-							<mainFocus class="section">
-								<sectionHead>Main Focus</sectionHead>
-								<p>The main focus of my term was completing the automatic updates service for the next major release of Fleet Manager. It was a Windows service that would be automatically detected by Fleet Manager, and wouldn’t allow you to login if more than one instance of the service was found. It had to work with the existing database versioning system in place (a one-to-many relationship between database version and software version).  It would receive the software updates from our web service at Trans Plus and then distribute the updates to all instances of Fleet Manager on the local network that contacted it.</p>
-							</mainFocus>
-							<learningGoals class="section">
-								<sectionHead>Learning Goals</sectionHead>
-								<goal>
-									<goalTitle>Implement a web service call that goes through the layers of Fleet Manager</goalTitle>
-									<p>At Trans Plus, we were starting to adopt usage of both an n-tiered design of Fleet Manager to better abstract the database from the front end as well as the use of web services to try to transition into a web-app design. I wanted to understand the both of these technologies to be able to implement stories faster and to be a better developer. One of my goals was to actually implement a web service that went through the entire five-tier system. I was unable to actually work on a story that required a new web service, as most of the stories I worked on were related to getting an existing web service up and running, however I did read a good portion of the book “Expert CSharp 2008 Business Objects” which contained a very detailed explanation of the implementation of an n-tier system using the .NET framework.</p>
-								</goal>
-								<goal>
-									<goalTitle>Make a browser version of Dr. Mario to learn more about web technologies</goalTitle>
-									<p>As part of the web development training at Trans Plus, one of the activities was to build the front-end for the game Dr. Mario using html5, css3 and javascript. This was to prepare any current developers for the eventual transition to a web-app version of Fleet Manager. That transition never happened, so the training was made optional and I was never able to get to it due to having other priorities at work. I did, however, gain experience using the angular 1.X framework with html5 and css3 to build a web app for my CIS3750 class.</p>
-								</goal>
-							</learningGoals>
-						</ReportBody>
-					</div><!--End of TransPlusF2014-->
-					<div id="TransPlusS2015" class="report" style="display:none;">
-						<!--<a href="#" onclick="display('TransPlusS2015')" class="closeButton">X</a>-->
-						<ReportHeader>
-							<CompanyName>Trans Plus</CompanyName>
-							<term>Summer 2015</term>
-						</ReportHeader>
-						<ReportBody>
-							<aboutSection class="section">
-								<sectionHead>About</sectionHead>
-								<p>Trans Plus is a software company specializing in Windows-based transportation software that was founded in Guelph. They have a flagship program called ‘Fleet Manager’ that is used by trucking companies to manage the logistics of their truck fleets. As a development company, they utilize the scrum methodology to push out new features in a timely manner.</p>
-							</aboutSection>
-							<jobDescription class="section">
-								<sectionHead>Job Description</sectionHead>
-								<p>My role changed in my second semester at Trans Plus to be the defect fixer, the branch manager for source control branches as well as the liaison for the development department to the product services department. It was my job to fix all defects that were reported as well as help product services whenever they needed a developer’s insight in diagnosing a bug/troubleshooting an issue. </p>
-								<p>The role of defect fixer was mostly unchanged from the previous semester except for the fact that the volume of defects coming in every day had increased 10 fold. The increased volume lead to a week of the entire department being dedicated to fixing defects, and it was my job to assign defects to developers in such a way that the priority defects were fixed first.</p>
-								<p>As the branch manager for source control branches, it was my job to ensure branches were merged to the main branch on time and properly, as well as create and delete branches when needed. There was a daily merge for all defects fixed in the last 24 hours that I was in charge of doing as well.</p>
-								<p>My last role as liaison for the development department to the product services department was to ensure that all development related questions were answered by me so that other developers were able to focus on their stories. This meant that I had to answer questions regarding recently released bug fixes and features, if the automatic updates were down and give estimates on when certain defects were to be fixed. </p>
-							</jobDescription>
-							<mainFocus class="section">
 
-							</mainFocus>
-							<learningGoals class="section">
-								<sectionHead>Learning Goals</sectionHead>
-								<goal>
-									<goalTitle>Complete the Merge Utility Program</goalTitle>
-									<p>I loved my Co-op job at Trans Plus for my second term. Each day posed a new challenge with all the different defects I had to diagnose and then fix without introducing more defects into the system. I looked at each one like a unique puzzle that needed to be solved. This was the interesting part of my job. The mundane part was the daily merge that I needed to complete before lunch in order to push through the bug fixes of the last 24 hours to live production. It was a simple process that was the same just about every time and didn’t require much thought, so I decided to automate it to make my work easier. I saw it as a good opportunity to try to build something from start to finish in C#, as opposed to just adding and fixing features in an already released product.</p>
-									<p>To start, the process for merging was this:
-										<ol>
-											<li>Merge the development branch to the production branch, resolving any conflicts that might come up.</li>
-											<li>Build the project using the “Release” parameters. </li>
-											<li>Run all unit tests. If any fail, fix in the development branch and then restart the process from step 1.</li>
-											<li>Check-in the changes to the production branch. </li>
-											<li>Run the nightly-build script.</li>
-											<li>Smoke test the build on a test computer after updating the Fleet Manager client through automatic updates.</li>
-											<li>Smoke test the build on a test computer from a fresh install of Fleet Manager.</li>
-											<li>Update the database versions xml file on the live server to reflect the new database and software versions of Fleet Manager.</li>
-											<li>Move the current backup to the old backup folder and copy the current build DLL files to the current backup folder. </li>
-											<li>Push the automatic updates live by removing the “Offline” flag for the automatic updates service.</li>
-										</ol>
-									</p>
-									<p>I tackled this problem in an iterative manner, building the small and easy features first, and then would move onto the more difficult ones. For me, this was building answers to steps 10, 9 and 8 in that order. For 10 and 9, it was simply learning how to manipulate files and figure out how to give a program the same permissions as the executing user so that when a development team member executed the program, it had access to the restricted servers on our network.</p>
-									<p>Step 8 consisted of learning how to use the different classes in the System.Xml namespace to read the Xml file and add a new set of nodes to it while following the existing schema. It is a large library and so the sheer volume I had to go through was daunting. </p>
-									<p>Once steps 10, 9 and 8 were complete, it removed much of the human error from the merge process. I moved onto steps 2 and 3 as they took up the most idle time besides the nightly build in the entire process. They both involved utilizing the vast Visual Studio API in order to do that tasks that were normally executed by hand. Again, the biggest challenge here was figuring out what the best classes/methods were to use from the API. It was also quite difficult to figure out if the build completed without errors from the return objects I received back when doing step 2.</p>
-									<p>Unfortunately, I ran out of time to complete the rest of the features as my term had completed, however the utility program still removed many of the mundane operations of the daily merge. </p>
-								</goal>
-								<goal>
-									<goalTitle>Bring the automatic defect log to under 30 defects by the time my term is complete.</goalTitle>
-									<p>During my first week of this term, the company had upgraded one of their biggest clients from the old VB6 version to their new VB.NET and C# version, Fleet Manager 3.0. While Fleet Manager 3.0 had already been released for a year at this point, none of the upgraded clients used the program as extensively as this new client. This meant that a lot of previously untouched modules of the software were now being used thoroughly, which caused the rate that we were getting defects submitted to us to increase by roughly 10 fold. </p>
-									<p>I had originally set this goal as an ambitious task, confident in my ability to fix the defects fast enough that I’d be able to keep up and eventually be able to call the product “Stable”. I underestimated the difficulty in fixing some of the defects though. Many had increasingly cryptic messages, the worst probably being “The operation completed successfully”, followed by a stack trace usually leading to the initialization of a form. These were rarely reproducible.</p>
-									<p>While I was able to fix many defects of varying difficulties and slowed the number we were getting every day from 50+ to less than 5, I was ultimately unable to reach my goal as the remaining defects were all either too difficult to track down or deemed too time consuming to fix.</p>
-								</goal>
-								<goal>
-									<goalTitle>Submit a hack day entry</goalTitle>
-									<p>On the first Thursday of every month, the development department would allow any developer to take the day off from working on the core application in order to develop a program that would be deemed as useful to the trucking industry or Trans Plus. The catch being you had to start from scratch and had until 9:00 AM the next day to show what you made. I mainly used these days to experiment with technologies that I had little to no experience with. This meant that actually producing something useful was very challenging.</p>
-									<p>My first attempt was the Merge Utility program listed in an above learning goal. Features were later completed to make the job of the co-op student less mundane. </p>
-									<p>My second attempt was to finish a module on a program I had been working for a course in school that I decided to continue on my own time. The program was a “battle simulator” for the online multiplayer game “League of Legends”. It utilized the Riot API to gather data about the game that would allow a user to simulate fights between different champions in the game. There are many different effects that champion’s attacks can have on one another, and the API does a very bad job of sending those effects to an application; through descriptive text. In order to complete this module, I had to build a text parser that would be able to read a champion’s attack description and churn out some sort of data class that would have the different effects that the attack had. </p>
-									<p>The game itself has many different types of effects, so this ultimately failed as a 24 hour application production. </p>
-									<p>My third attempt at a hack day was to take the “battle simulator” program I had described earlier and make it look presentable. The application was built using HTML5 and javascript with the Angular 1.X framework, so my first choice was to use barebones CSS3, something I had never done before. It was very frustrating throughout the entire 24 hours and it gave me a new found appreciation for front-end web developers and designers. I was able to make something presentable, and it laid the ground work for my future use of CSS3 in web development. </p>
-								</goal>
-							</learningGoals>
-						</ReportBody>
-					</div> <!--End of TransPlusS2015-->
-					<div id="LionRunReport" class="report" style="display:none;">
-						<ReportHeader>
-							<CompanyName>AEPi's Lion Run</CompanyName>
-							<term>May 7th 2016</term>
-						</ReportHeader>
-						<ReportBody>
-							<aboutSection class="section">
-								<sectionHead>What's a Lion Run?</sectionHead>
-								<p>The Alpha Epsilon Pi fraternity will be having their first annual Lion Run. A philanthropic event where they host a team of 100 brothers at the OneAmerica 500 Festival Mini Marathon. I have volunteered to be one of those 100 brothers. It is now my duty to not only train to be able to compete in this half marathon, but also to raise $2500 USD ($3250 CDN) in order to participate.</p>
-							</aboutSection>
-							<mainFocus class="section">
-								<sectionHead>Reason For Participating</sectionHead>
-								<p>I chose to participate in this endeavor for two reasons. The first being it's a good excuse to get fit again, simple as that. The second is because of the ten charities that the money goes towards, specifically the Gift of Life Bone Marrow Foundation. <a href="http://www.giftoflife.org/">The Gift of Life Bone Marrow Foundation</a> is a public bone marrow and stem cell registry, that helps facilitate transplants for children and adults suffering from life threatening diseases including leukemia, lymphoma, other cancers, and genetic diseases. This stands out to me as a cause worth supporting because I know from experience how scary it can be to need stem cells and finding no matches for them. It leaves you feeling powerless and removes a lot of the hope of the person overcoming the disease they are fighting. I also remember the invigorating feeling I had when I learned the doctors had finally located a suitable match of stem cells for my father, giving him a greater chance to overcome his lymphoma. It was joyous and relieving. An organization that works every day to give that feeling to individuals and families is more than worth my time.</p>
-							</mainFocus>
-							<learningGoals class="section">
-								<sectionHead>Lion Run Goals</sectionHead>
-								<goal>
-									<goalTitle>Raise $3250 CDN for the Lion Run </goalTitle>
-									<p>Fundraising has been completed!</a></p>
-								</goal>
-								<goal>
-									<goalTitle>Complete the race with 7:30/mile time</goalTitle>
-									<p>As of now, I can confortably run 3 miles in 27 minutes, taking 1 minute walking breaks after 4 minutes of running. I want to be faster, so I'm following a marathon training program, as well as giving up junk food as a start. I'll post updates on my times as they improve at a later time.</p>
-								</goal>
-								<goal>
-								    <goalTitle>Post Race Reflection</goalTitle>
-								    <p>After having completed fund raising and running the race, here are my results and thoughts:
-								        <ol>
-								            <li>$3250 is a lot of money! I actually came up short $200. I learned that fund-raising is not my strong suit.</li>
-								            <li>Training: training took a back seat to the fund-raising side of the endeavour. I stopped running regularly, only being able to go for a run once every three weeks. To be honest I'm lucky I was able to complete the run (spoilers).</li>
-								            <li>Race Results: I finished the race with a final time of 2:51:40. This comes out to a lightning fast pace of just over 13 minutes/mile. Pretty slow, but it is what it is. I was able to run for a mile and walk a minute for the first nine miles, but sometime during the tenth, my calves started to spasm whenever I would push too much with my toes. This meant I was either walking or hop-limping the last 3 miles. The hop-limping is as sad as you are imagining. Shoutout to the 70 year old dude I was running with in the last mile!</li>
-								        </ol>
-								        The entire weekend was a great time. I was in a lot of pain for pretty much all of saturday...and Sunday...and Monday...but I still want to do it again next year! I'll rethink fundraising so that I have time for training. I got some great tips from the other lion runners.
-								    </p>
-								</goal>
-							</learningGoals>
-						</ReportBody>
-					</div> <!--End of LionrunReport-->
-                    <div id="AdknownW2016" class="report" style="display:none;">
-						<!--<a href="#" onclick="display('TransPlusS2015')" class="closeButton">X</a>-->
-						<ReportHeader>
-							<CompanyName>Adknown</CompanyName>
-							<term>Winter 2016</term>
-						</ReportHeader>
-						<ReportBody>
-							<aboutSection class="section">
-								<sectionHead>About</sectionHead>
-								<p>Trans Plus is a software company specializing in Windows-based transportation software that was founded in Guelph. They have a flagship program called ‘Fleet Manager’ that is used by trucking companies to manage the logistics of their truck fleets. As a development company, they utilize the scrum methodology to push out new features in a timely manner.</p>
-								<p>Adknown is a high-performance advertiser that was founded in Guelph. Their business model is to bid on web traffic from different exchanges where a user is most likely to click on the ad we are serving.</p>
-							</aboutSection>
-							<jobDescription class="section">
-								<sectionHead>Job Description</sectionHead>
-								<p>Upon joining the development team at Adknown, I was tasked with managing the development of the Mobile RTB project. This project contained the tech for placing bids on internet traffic and logging the results of placing those bids. </p>
-								<p>As the development manager of the project, I oversaw everything from the development of new features to managing the servers that the code ran from and deploying code once it was finished development. Monitoring and maintaining the bid and log stack fall under my responsibilities as well. It was a big step for someone with minimal prior web development experience, but my boss and the rest of the team were always happy to offer input on any issues I would face. </p>
-                                <p>While working on Mobile RTB, I was exposed to a ton of different technologies. The bid and log stack are both written in PHP (was 5.6, now 7 after I upgraded them). I hadn’t worked with PHP since high school but this was a very good demonstration of both the computational and development power of PHP. Seriously, it’s a great language that I wish I had more time to talk about, but that’s for another post. </p>
-                                <p>The next “big” technology I got to see and use was ‘redis’. Redis is a service that allows you to store different types of data in memory that would then be associated with a key. Think ‘giant data bank’. It stores five different data types: strings, hashes, lists, sets and sorted sets. We use lists to store data that requires processing received from exchanges to be later processed. We use hashes for lightning fast lookups of bidding logic for if we want to bid on some ad space or not. Redis allows us to keep our response times to exchanges very fast, as there is no searching multiple rows like there would be with SQL. Most practical methods in redis have a complexity of O(1). </p>
-                                <p>The last piece of tech I’d like to talk about is called ‘FluentD’. It is described as a ‘unified logging layer’ and it allows you to take in log files, manipulate the logs however you want (i.e. add a field, change how they’re separated, etc.)  and then output them to another source. We use this to log our responses to exchanges for if we decided to bid or not on some ad traffic, as well as if we win when we bid. It makes modifying what we log very easy, since it usually means adding an additional parameter to a configuration file, as well as a spot in the code that creates the object that pushes to fluentD. </p>
-                                <p>I suppose it’s also worth mentioning that the entire Mobile RTB uses the Amazon Web Services platform. We keep our bidding servers on auto-scaling ec2 instances, our adhoc log data in a sql database on an RDS instance, our long-term data is stored in Simple Storage Server (S3) and we’re now getting into using redshift for running queries on our long term data. The AWS platform is infinitely scalable and after using it for the short 4 months I’ve worked at Adknown, I’m hooked. </p>
-							</jobDescription>
-							<mainFocus class="section">
 
-							</mainFocus>
-							<learningGoals class="section">
-								<sectionHead>Learning Goals</sectionHead>
-								<goal>
-									<goalTitle>Create Automatic Testing Script For Bid Servers</goalTitle>
-									<p>When I first joined the Mobile RTB project, the bid server code was in a working state, however making changes to it was very scary because there were something like 50 different possible cases that could happen when a bid request comes through and I had no way of knowing if I was hitting every one. To alleviate that stress, I built a test harness for the bid server code that covered almost 100% of the code. Now the test harness is run whenever the production code for the bid server is released.</p>
-								</goal>
-								<goal>
-									<goalTitle>Complete All Outstanding Tickets For Mobile RTB</goalTitle>
-									<p>As with most projects, there were some outstanding tasks left from my predecessor. They weren’t too bad, but I completed them all and now the outstanding work is the new features to be released. </p>
-								</goal>
-								<goal>
-									<goalTitle>Organize and Automate the Alert System of MobileRTB</goalTitle>
-									<p> The Mobile RTB system had many alerts for when things break, however some of the older processes don’t have the alerts. I added the alerts and now the system is much more automated.</p>
-								</goal>
-							</learningGoals>
-						</ReportBody>
-					</div> <!--End of AdknownW2016-->
-				</Story>
-			</writtenContent>
-        </main>
+				<!--</Story>-->
+			<!--</writtenContent>-->
     </body>
+    <script>
+        $(function() {
+            $(".include").each(function() {
+
+                $(this).load(this.id);
+            })
+        })
+    </script>
 </html>
