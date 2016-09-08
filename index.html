@@ -6,10 +6,10 @@
         <title>I make programs and program accessories</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="js/main.js"></script>
         <!--<script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>-->
         <script type="text/javascript" src="vendor/components/jquery/jquery.js"></script>
         <script type="text/javascript" src="vendor/twbs/bootstrap/js/dropdown.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
 		<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/main.css" rel="stylesheet"/>
 		<link rel="shortcut icon" type="image/x-icon" href="img/faviconV2.ico">
@@ -58,13 +58,15 @@
                 </div>
             </div>
         </div>
+        <div class="include" id="CurriculumVitae.html"></div>
     </body>
     <script>
-        $(function() {
+        $(window).ready(function() {
             $(".include").each(function() {
 
                 $(this).load(this.id);
-            })
-        })
+            });
+            HideOldContent();
+        });
     </script>
 </html>
