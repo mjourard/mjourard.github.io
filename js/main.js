@@ -1,8 +1,10 @@
-function HideOldContent() {
+var cutOffYear = 3;
+
+function HideOldContent($parent) {
     var count = 0;
-    $("time .end").each(function() {
+    $("time.end", $parent).each(function() {
         if (timeElementIsTooOld($(this))) {
-            $(this).parent.parent.parent.hide();
+            $(this).parent().parent().parent().hide();
         }
         count++;
     });
@@ -11,7 +13,7 @@ function HideOldContent() {
 
 function timeElementIsTooOld($time) {
     var timeVal = new Date($time.attr("datetime"));
-    var cutOffTime = Date.now();
-    cutOffTime.setYear(cutOffTime.getYear() - 1);
+    var cutOffTime = new Date();
+    cutOffTime.setYear(cutOffTime.getFullYear() - 3);
     return cutOffTime.valueOf() > timeVal.valueOf();
 }

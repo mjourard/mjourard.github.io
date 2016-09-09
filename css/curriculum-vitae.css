@@ -1,0 +1,31 @@
+.resume-section {
+    border-top: 1px solid black;
+}
+
+.resume-section > * {
+    border: 1px solid black;
+}
+
+.resume-section-header {
+    text-align: center;
+}
+
+.job {
+    border: 5px solid blue;
+}
+
+.job-title {
+    border: 10px solid red;
+}
+
+.company-header {
+    border: 15px solid green;
+}
+
+.company-header > .job-length {
+    float: right;
+}
+
+.resume-section li {
+    list-style: none;
+}
