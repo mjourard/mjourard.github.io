@@ -1,3 +1,7 @@
+.pre-loaded {
+    border: 1px black solid;
+}
+
 nav {
     margin-top: 50px;
     margin-left: 10%;
