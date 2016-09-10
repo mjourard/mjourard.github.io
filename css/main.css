@@ -4,8 +4,22 @@ body {
 }
 
 .pre-loaded {
-    border: 1px black solid;
-    background-color: #45403a;
+    /*background-color: #45403a*/;
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.pre-loaded > .container > .row {
+    /*border: 2px black dotted;*/
+    background-color: #f8f8f8;
+    border-radius: 50px;
+}
+
+.profile-column {
+    padding: 3.5%;
+    /*background-color: #f8f8f8;*/
+    height: auto;
 }
 
 nav {
@@ -20,3 +34,31 @@ nav {
     position: relative;
 }
 
+.title-float-left {
+    float: left;
+    margin-right: 20px;
+}
+
+.dash-list {
+    list-style-type: none;
+}
+
+.dash-list li {
+    /*display: block;*/
+}
+
+.dash-list li:before {
+    content: "\2212";
+    font-family: 'Glyphicons Halflings', sans-serif;
+    font-size: 14pt;
+    /*float: left;
+    margin-top: 4px;*/
+    margin-left: -40px;
+    padding-right: 5px;
+    color: #CCCCCC;
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
+}

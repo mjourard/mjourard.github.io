@@ -24,59 +24,42 @@
 <div id="home-page" class="pre-loaded">
     <div class="container">
         <!-- about -->
-        <div class="row">
-            <div class="col-md-4 center-block">
+        <div class="row vcenter">
+            <div class="col-md-4 profile-column">
                 <a href="#">
-                    <img class="media-object img-circle" src="img/StudentCardSelfPortrait.jpg">
+                    <img class="img-circle" src="img/StudentCardSelfPortrait.jpg">
                 </a>
-            </div>
-            <div class="col-md-4">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="text-center">Matthew Jourard</h1>
-                        </div>
+                <h1 class="text-center">Matthew Jourard</h1>
+                <h1 class="text-center"><small>Full Stack Developer</small></h1>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-3">
+                        <a class="btn btn-social-icon btn-google" href="mailto:mjourard@gmail.com"
+                           title="mjourard@gmail.com">
+                            <i class="fa fa-google"></i>
+                        </a>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="text-center">
-                                <small>Full Stack Developer</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-2">
-                            <a class="btn btn-social-icon btn-google btn-lg" href="mailto:mjourard@gmail.com"
-                               title="mjourard@gmail.com">
-                                <i class="fa fa-google"></i>
-                            </a>
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">
-                            <a class="btn btn-social-icon btn-linkedin btn-lg" target="_blank"
-                               href="https://ca.linkedin.com/in/matthew-jourard-14997089">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </div>
-
-                        <div class="col-md-3"></div>
+                    <div class="col-md-2 col-md-offset-2">
+                        <a class="btn btn-social-icon btn-linkedin" target="_blank"
+                           href="https://ca.linkedin.com/in/matthew-jourard-14997089">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <strong>Bio</strong>
-                <p>My name is Matthew Jourard. I'm a fifth year Computer Science major at the University of Guelph.
-                    I have professional experience in building and maintaining windows-based and web-based projects.
-                    I like using the Amazon Web Services Platform.
-                </p>
-                <strong>Skills</strong>
-                <ul>
+                <h1><strong class="title-float-left">About</strong></h1>
+                <p>My name is Matthew Jourard. I'm a fifth year Computer Science major at the University of Guelph. I
+                    have professional experience in building and maintaining windows-based and web-based projects. I
+                    like using the Amazon Web Services Platform.</p>
+            </div>
+            <div class="col-md-4 profile-column">
+                <h1><strong>Skills</strong></h1>
+                <ul class="dash-list">
                     <li>PHP</li>
-                    <li>Javascript + JQuery</li>
-                    <li>CSS + Bootstrap</li>
+                    <li>Javascript<span class="badge">+ JQuery</span></li>
+                    <li>CSS<span class="badge">+ Bootstrap</span></li>
                     <li>AWS Platform</li>
-                    <li>Scrum</li>
+                    <li>Scrum Methodology</li>
                 </ul>
             </div>
         </div>
@@ -90,7 +73,11 @@
         $(".include").each(function () {
 
             $(this).load(this.id, function () {
-                HideOldContent($(this));
+                if ($(this)[0].id === "CurriculumVitae.html") {
+                    console.log("Hiding old content");
+                    HideOldContent();
+                }
+
             });
         });
     });

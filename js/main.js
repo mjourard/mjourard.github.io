@@ -1,19 +1,27 @@
 var cutOffYear = 3;
 
-function HideOldContent($parent) {
-    var count = 0;
-    $("time.end", $parent).each(function() {
-        if (timeElementIsTooOld($(this))) {
-            $(this).parent().parent().parent().hide();
+function HideOldContent() {
+    var $sections = $(".resume-section");
+    $sections.each(function() {
+        var $jobs = $("div.job", $(this));
+        var hidden = 0;
+        $jobs.each(function() {
+            console.log($("time.end", $(this)));
+            if (timeElementIsTooOld($("time.end", $(this)))) {
+                $(this).hide();
+                hidden++;
+            }
+        });
+        if (hidden > 0 && hidden === $jobs.length) {
+            $(this).hide();
         }
-        count++;
     });
-    console.log("completed looking for old content. found " + count + " time elements");
+
 }
 
 function timeElementIsTooOld($time) {
     var timeVal = new Date($time.attr("datetime"));
     var cutOffTime = new Date();
-    cutOffTime.setYear(cutOffTime.getFullYear() - 3);
+    cutOffTime.setYear(cutOffTime.getFullYear() - cutOffYear);
     return cutOffTime.valueOf() > timeVal.valueOf();
 }

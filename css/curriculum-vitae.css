@@ -2,24 +2,32 @@
     border-top: 1px solid black;
 }
 
-.resume-section > * {
-    border: 1px solid black;
-}
-
 .resume-section-header {
     text-align: center;
 }
 
 .job {
-    border: 5px solid blue;
+    border: 3px outset darkgrey;
+    border-radius: 10px;
+    box-shadow: #B3B3B3 15px 15px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 3%;
 }
 
 .job-title {
-    border: 10px solid red;
+    /*border: 10px solid red;*/
+    font-size: 20pt;
+}
+
+.company-name {
+
 }
 
 .company-header {
-    border: 15px solid green;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid black;
 }
 
 .company-header > .job-length {
@@ -28,4 +36,22 @@
 
 .resume-section li {
     list-style: none;
+}
+
+.responsibilities:before {
+    content: "Responsibilities:";
+}
+
+.tech-used {
+    border-left: 1px solid black;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.tech-used:before {
+    content: "Technologies Used:"
+}
+
+time.end:before {
+    content: " - ";
 }
