@@ -1,4 +1,5 @@
 var cutOffYear = 3;
+var currentPage = "";
 
 function HideOldContent() {
     var $sections = $(".resume-section");
@@ -24,4 +25,26 @@ function timeElementIsTooOld($time) {
     var cutOffTime = new Date();
     cutOffTime.setYear(cutOffTime.getFullYear() - cutOffYear);
     return cutOffTime.valueOf() > timeVal.valueOf();
+}
+
+function displayHomePage() {
+    $("#content-base").hide();
+    $("#home-page").show();
+    $("#CurriculumVitae\.html").show();
+
+}
+
+function displayContent(pagePath) {
+    if (pagePath === currentPage) {
+        return;
+    } else {
+        $("#" + currentPage, "#content-base").hide();
+    }
+    $("#home-page").hide();
+    $("#CurriculumVitae\.html").hide();
+    if ($("#" + pagePath, "#content-base").length === 0) {
+        $("#content-base").load(pagePath);
+    } else {
+        $("#" + pagePath, "#content-base").show();
+    }
 }
