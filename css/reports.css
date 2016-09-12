@@ -1,0 +1,27 @@
+.report-header {
+    border-bottom: 1px solid black;
+}
+
+.company-name {
+
+}
+
+.term {
+
+}
+
+.report-body {
+
+}
+
+.section {
+
+}
+
+.section > .title {
+    font-size: 20pt;
+}
+
+.title {
+    font-size: 18pt;
+}
