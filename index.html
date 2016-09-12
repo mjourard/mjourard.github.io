@@ -18,9 +18,10 @@
     <link href="img/faviconV2.ico" rel="shortcut icon" type="image/x-icon">
     <link href="css/justified-nav.css" type="text/css">
     <link href="css/curriculum-vitae.css" rel="stylesheet">
+    <link href="css/reports.css" rel="stylesheet">
 </head>
 <body>
-<div class="include" id="nav.html"></div>
+<div class="include" id="site-nav"></div>
 <div class="pre-loaded" id="home-page">
     <div class="container">
         <!-- about -->
@@ -65,31 +66,35 @@
         </div>
     </div>
 </div>
-<div class="include" id="CurriculumVitae.html"></div>
+<div class="include" id="CurriculumVitae"></div>
 <div id="content-base"></div>
 </body>
 <script>
     $(window).ready(function () {
         $(".include").each(function () {
 
-            $(this).load(this.id, function () {
-                if ($(this)[0].id === "CurriculumVitae.html") {
+            $(this).load(this.id + ".html", function () {
+                if ($(this)[0].id === "CurriculumVitae") {
                     console.log("Hiding old content");
                     HideOldContent();
-                } else if ($(this)[0].id === "nav.html") {
+                } else if ($(this)[0].id === "site-nav") {
                     console.log("loading the nav bar");
                     $("#home").click(displayHomePage);
-                    var $menu = $("#reports-menu");
-                    var $reportLinks = $("li > a", $menu);
-                    $reportLinks.each(function() {
-                        $(this).click(function() {
-                            displayContent($(this)[0].id);
-                        })
-                    });
+                    addMenuLinks($("#reports-menu"), "coop-reports");
+                    addMenuLinks($("#aepi-menu"), "aepi");
                 }
 
             });
         });
     });
+
+    function addMenuLinks($menu, directory) {
+        var $reportLinks = $("li > a", $menu);
+        $reportLinks.each(function() {
+            $(this).click(function() {
+                displayContent(directory, $(this)[0].id);
+            })
+        });
+    }
 </script>
 </html>

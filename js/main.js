@@ -28,26 +28,32 @@ function timeElementIsTooOld($time) {
 
 function displayHomePage() {
     console.log("home page displayed!");
+    currentPage = "";
     $("#content-base").hide();
     $("#home-page").show();
-    $("#CurriculumVitae\.html").show();
+    $("#CurriculumVitae").show();
 
 }
 
 function displayContent(directory, pageName) {
-    var pagePath = directory.replace("/", "-") + "-" + pageName;
-    if (pagePath === currentPage) {
+    console.log("in display content! pageName = " + pageName);
+    var $base = $("#content-base");
+    if (pageName === currentPage) {
+        console.log("current page selected is the linked page.");
         return;
     } else if (currentPage !== "") {
-        $("#" + currentPage, "#content-base").hide();
+        $("#" + currentPage, $base).hide();
     }
     $("#home-page").hide();
-    $("#CurriculumVitae\.html").hide();
-    if ($("#" + escapedPagePath, "#content-base").length === 0) {
-        $("#content-base").load(pagePath);
+    $("#CurriculumVitae").hide();
+    if ($("#" + pageName, $base).length === 0) {
+        console.log("loading " + directory + "/" + pageName + ".html");
+        $base.load(directory + "/" + pageName + ".html");
     } else {
-        $("#" + escapedPagePath, "#content-base").show();
+        console.log("page name = " + pageName);
+        $("#" + pageName, $base).show();
     }
 
-    currentPage = pagePath;
+    $base.show();
+    currentPage = pageName;
 }
