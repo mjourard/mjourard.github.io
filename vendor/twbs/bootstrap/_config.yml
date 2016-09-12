@@ -1,3 +1,6 @@
+# where things are
+includes_dir: _includes
+
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
