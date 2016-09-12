@@ -7,7 +7,6 @@ function HideOldContent() {
         var $jobs = $("div.job", $(this));
         var hidden = 0;
         $jobs.each(function() {
-            console.log($("time.end", $(this)));
             if (timeElementIsTooOld($("time.end", $(this)))) {
                 $(this).hide();
                 hidden++;
@@ -28,23 +27,27 @@ function timeElementIsTooOld($time) {
 }
 
 function displayHomePage() {
+    console.log("home page displayed!");
     $("#content-base").hide();
     $("#home-page").show();
     $("#CurriculumVitae\.html").show();
 
 }
 
-function displayContent(pagePath) {
+function displayContent(directory, pageName) {
+    var pagePath = directory.replace("/", "-") + "-" + pageName;
     if (pagePath === currentPage) {
         return;
-    } else {
+    } else if (currentPage !== "") {
         $("#" + currentPage, "#content-base").hide();
     }
     $("#home-page").hide();
     $("#CurriculumVitae\.html").hide();
-    if ($("#" + pagePath, "#content-base").length === 0) {
+    if ($("#" + escapedPagePath, "#content-base").length === 0) {
         $("#content-base").load(pagePath);
     } else {
-        $("#" + pagePath, "#content-base").show();
+        $("#" + escapedPagePath, "#content-base").show();
     }
+
+    currentPage = pagePath;
 }

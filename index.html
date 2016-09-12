@@ -76,6 +76,16 @@
                 if ($(this)[0].id === "CurriculumVitae.html") {
                     console.log("Hiding old content");
                     HideOldContent();
+                } else if ($(this)[0].id === "nav.html") {
+                    console.log("loading the nav bar");
+                    $("#home").click(displayHomePage);
+                    var $menu = $("#reports-menu");
+                    var $reportLinks = $("li > a", $menu);
+                    $reportLinks.each(function() {
+                        $(this).click(function() {
+                            displayContent($(this)[0].id);
+                        })
+                    });
                 }
 
             });

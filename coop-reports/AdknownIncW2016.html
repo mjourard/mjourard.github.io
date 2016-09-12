@@ -1,25 +1,21 @@
-<div id="AdknownW2016" class="report" style="display:none;">
-    <!--<a href="#" onclick="display('TransPlusS2015')" class="closeButton">X</a>-->
-    <ReportHeader>
-        <CompanyName>Adknown</CompanyName>
-        <term>Winter + Summer 2016</term>
-    </ReportHeader>
-    <ReportBody>
-        <aboutSection class="section">
-            <sectionHead>About</sectionHead>
+<div id="AdknownW2016" class="report">
+    <div class="report-header">
+        <span class="company-name">Adknown</span>
+        <span class="term">Winter + Summer 2016</span>
+    </div>
+    <div class="report-body">
+        <div class="section about">
+            <span class="title">About</span>
             <p>Adknown is a high-performance advertising company that connects customers to advertisers. Their business model is based on targeting users that are likely to be interested in their advertiser’s products. To enhance ad targeting they use various Big Data Analytic methods to analyze billions of user requests at a time, searching for patterns and trends.</p>
-        </aboutSection>
-        <jobDescription class="section">
-            <sectionHead>My Role</sectionHead>
+        </div>
+        <div class="section job-description">
+            <span class="title">My Role</span>
             <p>My time at Adknown was spent managing the Mobile Real Time Bidding platform, RTB for short. The project dealt with interacting with ad exchanges that would hold auctions for ad space. We would bid in these auctions by getting ‘bid requests’ from exchanges, and reply back with a ‘bid response’. The response would either be a ‘nobid’ response, or a bid response containing our bid value and a link to our ad if we had the highest bid at the auction. The entire process of receiving the request, determining if we were to bid on it and replying back with a response took a fraction of a second, and we would be getting anywhere from 50 million to 200 million requests a day. Each request and response would be stored using Amazon’s Simple Storage Server (S3).</p>
             <p>Managing RTB involved prioritizing and completing tasks that would be created during the day to day operations of the platform. Tasks could be created by any actor involved in the project (i.e. myself as the project manager, the SEM using the platform as a User, my boss as the IT Director). This meant deciding when and how new features were to be implemented, what kind of safeguards and diagnostic tools we needed and fixing any bugs or problems that would appear. It was a challenge initially to wrap my head around prioritizing the tasks and balancing my time between tasks, but it came together.</p>
             <p>To complete the tasks and goals set forth by RTB, various technologies were utilized. Our backend for various servers was written in PHP, while the frontend for any User Interfaces to the platform was HTML5, PHP, CSS3 and Javascript, utilizing the bootstrap and JQuery frameworks. Our Server back ends ran on Nginx, and utilized Redis for in-memory data lookup and FluentD for request, response and error logging. As the primary developer on the project, I had to know how all of these technologies worked and how they worked together. It was a steep learning curve, but I was able to pick them up and was semi-frequently consulted by full time developers on the nuances of the different services.</p>
-        </jobDescription>
-        <mainFocus class="section">
-
-        </mainFocus>
-        <learningGoals class="section">
-            <sectionHead>Amazon Web Services</sectionHead>
+        </div>
+        <div class="section learning-goals">
+            <span class="title">Amazon Web Services</span>
             <p>RTB utilized Amazon’s Web Services platform for our server and data storage needs. This meant there was no physical racking of servers on our end – with a few key strokes we could go from having two servers to 10. It removed a lot of the traditional headache associated with adding and removing servers. It was also part of my job to manage the AWS platform and minimize costs wherever I could. This meant optimizing the number of servers we used for bidding, ensuring we were storing our data efficiently, integrating new services that would benefit the project and monitoring the platform to ensure we were still bidding and making money. Monitoring the platform was fairly complicated at first as there were many reasons for us to stop bidding. Tracking down the issue wasn’t always easy, and usually entailed examining and code over multiple servers. I did manage to standardize the process and leave a troubleshooting guide for the developer that was taking over the project once I left.</p>
             <ul>The major services we used of the AWS platform were as follows:
 
@@ -36,9 +32,9 @@
 
             <p>My time managing RTB has shown me the power of the AWS platform, and it has swayed me in the direction of focusing on expanding my knowledge of its use.</p>
 
-        </learningGoals>
+        </div>
         <div class="section">
-            <sectionHead>Lessons Learned</sectionHead>
+            <span class="title">Lessons Learned</span>
             <p>Upon being hired at Adknown, I did not know what to expect of my next eight months. I had yet to fully grasp the opportunity I was given. At Adknown, they care a lot about training their people well and giving them opportunities to grow on their own. I learned a great deal while working for Adknown, but here are some of the more important points that I feel I should mention.</p>
             <ol>
                 <li>Understanding the goals that the software is trying to achieve can be just as important, if not more, than understanding all the different inner workings of the system.
@@ -56,8 +52,8 @@
             </ol>
         </div>
         <div class="section">
-            <sectionHead>Conclussions</sectionHead>
+            <span class="title">Conclusions</span>
             <p>Overall, a fantastic co-op experience working for Adknown. They treat and train their employees well and as such have retained a highly skilled workforce. They offer many avenues to grow and expand your skillset and the company culture is very conducive to learning and collaboration. I look forward to working with them again post-graduation.</p>
         </div>
-    </ReportBody>
+    </div>
 </div> <!--End of AdknownW2016-->
