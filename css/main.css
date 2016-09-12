@@ -1,331 +1,64 @@
-
-main {
-	background-image: url("../img/STOCKdeveloperImage.jpg");
-	background-repeat: no-repeat;
-	background-position: right top;
-	background-size: cover;
-	border-radius: 15px 15px 15px 15px;
-	-moz-border-radius: 15px 15px 15px 15px;
-	-webkit-border-radius: 15px 15px 15px 15px;
-	border: 12px inset #6b6460;
-	position: absolute;
-	height: 95%;
-	width: 98%;
+body {
+    border: 20px solid #2B2B2B;
+    font-size: 16pt;
 }
 
-writtenContent {
-	height: 100%;
-	width: 37%;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	right: 0;
-	display: flex;
-	flex-flow: column;
+.pre-loaded {
+    /*background-color: #45403a*/;
+
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
-IntroBlurb {
-	color: #FFFAF0;
-	font-size: 4.0vmin;
-	font-family: "Lucida Bright";
+.pre-loaded > .container > .row {
+    /*border: 2px black dotted;*/
+    background-color: #f8f8f8;
+    border-radius: 50px;
 }
 
-name {
-	font-size: 8.0vmin;
-}
-
-IntroBlurb ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	text-align: justify;
-}
-
-IntroBlurb ul li {
-	display: inline;
-	opacity: 0;
-	animation-name: tutsFade;
-	animation-duration: 1s;
-  	animation-delay: 1.0s;
-  	animation-fill-mode: forwards;
-  	margin: 1.5%;
-}
-
-main img {
-	padding: 1.5em 5.0em;
-	border-radius: 50%;
+.profile-column {
+    padding: 3.5%;
+    /*background-color: #f8f8f8;*/
+    height: auto;
 }
 
 nav {
-	background-color: #954535;
-	float: left;
-	height: 100%;
-	position: relative;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-nav ul {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+.center-section {
+    width: 80%;
+    left: 10%;
+    position: relative;
 }
 
-nav ul li {
-	list-style-type: none;
-	text-decoration: none;
-	font-size: 4.5vmin;
-	'padding: 1em 0 1em 0.5em;
-	position: relative;
-	font-family: "Rockwell Extra Bold", "Rockwell", "Lucida Sans Typewriter", "Segoe UI", sans-serif;
-	padding-right: 10px;
+.title-float-left {
+    float: left;
+    margin-right: 20px;
 }
 
-nav ul li:hover {
-	background-color: #000000;
-}
-nav ul li a {
-	color: #FFFAF0;
-	text-decoration: none;
-	display: block;
-	padding: 1em 0 1em 0.5em;
+.dash-list {
+    list-style-type: none;
 }
 
-nav ul ul {
-	background-color: #000000;
+.dash-list li {
+    /*display: block;*/
 }
 
-nav ul ul li:hover {
-	background-color: #954535;
+.dash-list li:before {
+    content: "\2212";
+    font-family: 'Glyphicons Halflings', sans-serif;
+    font-size: 14pt;
+    /*float: left;
+    margin-top: 4px;*/
+    margin-left: -40px;
+    padding-right: 5px;
+    color: #CCCCCC;
 }
 
-nav ul ul li a {
-	display: block;
-	padding: 1em 0 1em 0.5em;
-}
-
-
-ul#Co-opWriteups {
-	display: none;
-}
-
-
-nav ul li:hover ul#Co-opWriteups {
-	display: inline;
-}
-
-
-@keyframes tutsFade {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-Story {
-	display: inherit;
-	flex-grow: 1;
-	flex-shrink: 1;
-	flex-basis: auto;
-	overflow-y: auto;
-	opacity: 0.85;
-	-webkit-box-shadow: -10px -5px 5px -2px rgba(0,0,0,0.74);
-	-moz-box-shadow: -10px -5px 5px -2px rgba(0,0,0,0.74);
-	box-shadow: -10px -5px 5px -2px rgba(0,0,0,0.74);
-}
-
-/**********************/
-/* SCROLL BAR STYLING */
-/**********************/
-::-webkit-scrollbar {
-    width: 11px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(44, 7, 7, 1);
-    -webkit-box-shadow: inset 0 0 6px rgba(44, 7, 7, 0.4);
-}
-::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(0, 0, 0, 0.2);
-}
-
-
-/******************/
-/* REPORT STYLING */
-/******************/
-
-.report {
-	display: inherit;
-	overflow-y: auto;
-	color: #FFFAF0;
-	background: #4C4535;
-	flex-grow: 1;
-	flex-shrink: 1;
-	flex-basis: auto;
-	margin-right: 1.5%;
-	padding: 10px;
-	opacity: 1.0;
-}
-
-ReportHeader {
-	display: inherit;
-	flex-direction: row;
-	flex-wrap: no-wrap;
-	justify-content: center;
-	align-items: center;
-	'border-bottom: black solid 1px;
-	'border-bottom-width: 60%;
-}
-
-ReportHeader:after {
-	content:"";
-	background: #6C6565;
-  	border-bottom: 1px solid #1C1515;
-  	display: flex;
-	text-align: center;
-  	justify-content: center;
-  	align-items: center;
-  	height: 2px;
-  	width: auto;
-  	margin: 15px;
-}
-
-.report p {
-	padding: 10px;
-	font-family: "Segoe UI";
-}
-
-.section {
-	margin-bottom: 9px;
-	border: white outset;
-	display: block;
-	background: #1A1616;
-	color: white;
-}
-
-.section p a {
-	color: #9F6666;
-	text-decoration: none;
-}
-
-CompanyName {
-	display: block;
-	text-align: center;
-	font-size: 5.0vmin;
-	font-family:  "Copperplate", "Copperplate Gothic Light", sans-serif;
-}
-
-Term {
-	display: block;
-	font-size: 3.0vmin;
-	text-align: center;
-
-}
-
-ReportBody {
-	width: 90%;
-	margin-top: 1%;
-	margin-left: 2%;
-	margin-right: 2%;
-	margin-bottom: 1%;
-}
-
-sectionHead {
-	font-weight: bold;
-	font-size: 2.25vmin;
-	text-transform: uppercase;
-	padding: 10px
-}
-
-aboutSection {
-	border: white outset;
-	display: block;
-	background: #1A1616;
-	color: white;
-
-}
-
-introduction {
-	border: white outset;
-	display: block;
-	background: #1A1616;
-	color: white;
-
-}
-
-jobDescription {
-	border: white outset;
-	display: block;
-	background: #1A1616;
-	color: white;
-
-}
-
-mainFocus {
-	border: white outset;
-	display: block;
-	background: #1A1616;
-	color: white;
-
-}
-
-learningGoals {
-	margin: 2px;
-	border: white outset;
-	padding: 4px;
-	display: block;
-	background: #1A1616;
-	color: white;
-
-}
-
-learningGoals goal {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	justify-content: center;
-	margin-top: 8px;
-	margin-bottom: 5px;
-}
-
-learningGoals goal goalTitle {
-	text-transform: capitalize;
-	font-family: "Century Gothic", "Franklin Gothic Medium", sans-serif;
-}
-
-learningGoals goal goalTitle:after {
-	content:"";
-	background: #6C6565;
-  	border-bottom: 1px solid #1C1515;
-  	display: flex;
-	text-align: center;
-  	justify-content: center;
-  	align-items: center;
-  	height: 2px;
-  	width: auto;
-  	margin: 15px;
-}
-
-SignOff {
-	clear: both;
-}
-
-a[href^="mailto"] {
-	color: #1C1515;
-	text-decoration: none;
-	font-size: 3.0vmin;
-}
-
-a[href^="mailto"]:hover:after {
-	 content: " > " attr(title);
+.vcenter {
+    display: flex;
+    align-items: center;
 }

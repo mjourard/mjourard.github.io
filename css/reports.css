@@ -1,0 +1,50 @@
+.report {
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.report-header {
+    border-bottom: 1px solid black;
+    margin-bottom: 1%;
+}
+
+.report .company-name {
+    display: block;
+    text-align: center;
+    font-size: 5.0vmin;
+    font-family:  "Copperplate", "Copperplate Gothic Light", sans-serif;
+}
+
+.term {
+    display: block;
+    font-size: 3.0vmin;
+    text-align: center;
+}
+
+.report-body {
+
+}
+
+.section {
+    border: 1px solid #0f4bac;
+    border-radius: 20px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: #ffffff;
+    padding: 1%;
+}
+
+.section > .title {
+    font-size: 20pt;
+}
+
+.title {
+    font-size: 18pt;
+}
+
+.goal > .title:before {
+    content: "Goal: ";
+}
