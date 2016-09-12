@@ -1,5 +1,5 @@
 # where things are
-includes_dir: _includes
+includes_dir: vendor/twbs/bootstrap/docs/_includes
 
 # Dependencies
 markdown:         kramdown
