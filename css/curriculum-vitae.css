@@ -15,19 +15,31 @@
     margin-bottom: 3%;
 }
 
-.job-title {
-    /*border: 10px solid red;*/
-    font-size: 20pt;
+.job.part-time {
+    border-radius: 15px;
+    box-shadow: #B3B3B3 5px 5px;
+    color: #888888;
 }
 
-.company-name {
+.job.part-time > .job-title:after {
+    content: " (part time)";
+    text-transform: lowercase;
+    font-weight: lighter;
+    font-style: italic;
+}
 
+.job-title {
+    font-size: 20pt;
 }
 
 .company-header {
     padding-bottom: 5px;
     margin-bottom: 5px;
     border-bottom: 1px solid black;
+}
+
+.job.part-time > .company-header {
+    border-bottom: 1px solid #888888;
 }
 
 .company-header > .job-length {
