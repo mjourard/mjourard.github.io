@@ -8,12 +8,16 @@ function HideOldContent() {
         var hidden = 0;
         $jobs.each(function() {
             if (timeElementIsTooOld($("time.end", $(this)))) {
-                $(this).hide();
+                $(this).addClass('collapse');
                 hidden++;
             }
         });
-        if (hidden > 0 && hidden === $jobs.length) {
-            $(this).hide();
+        if (hidden > 0) {
+            if (hidden === $jobs.length) {
+                $(this).addClass('collapse');
+            } else {
+
+            }
         }
     });
 
