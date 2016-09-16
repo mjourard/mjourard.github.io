@@ -67,3 +67,7 @@
 time.end:before {
     content: " - ";
 }
+
+.toggle-responsibilities {
+    float: right;
+}

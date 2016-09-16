@@ -8,19 +8,19 @@ function HideOldContent() {
         var hidden = 0;
         $jobs.each(function() {
             if (timeElementIsTooOld($("time.end", $(this)))) {
-                $(this).addClass('collapse');
+                //$(this).addClass('collapse');
+                collapseResponsibilities($(this));
                 hidden++;
             }
         });
         if (hidden > 0) {
             if (hidden === $jobs.length) {
-                $(this).addClass('collapse');
+                //$(this).addClass('collapse');
             } else {
 
             }
         }
     });
-
 }
 
 function timeElementIsTooOld($time) {
@@ -60,4 +60,14 @@ function displayContent(directory, pageName) {
 
     $base.show();
     currentPage = pageName;
+}
+
+function collapseResponsibilities($job) {
+    var jobId = $job.attr('id');
+    console.log(jobId);
+    var responsibilitiesSelector = "#" + jobId + " > .responsibilities";
+    console.log(responsibilitiesSelector);
+    var $titleBlock = $(".title-block", $job);
+    $titleBlock.append('<button class="btn btn-default toggle-responsibilities" type="button" data-toggle="collapse" data-target="' + responsibilitiesSelector + '" aria-expanded="true">Show Responsibilities</button>');
+    $(responsibilitiesSelector).addClass("collapse");
 }
