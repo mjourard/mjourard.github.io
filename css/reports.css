@@ -48,3 +48,14 @@
 .goal > .title:before {
     content: "Goal: ";
 }
+
+.goal > p {
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+
+.goal > ol,ul {
+    padding-left: 5%;
+    padding-right: 5%;
+}

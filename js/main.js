@@ -7,19 +7,12 @@ function HideOldContent() {
         var $jobs = $("div.job", $(this));
         var hidden = 0;
         $jobs.each(function() {
-            if (timeElementIsTooOld($("time.end", $(this)))) {
+            if (timeElementIsTooOld($("time.end", $(this))) || $(this).hasClass("part-time")) {
                 //$(this).addClass('collapse');
                 collapseResponsibilities($(this));
                 hidden++;
             }
         });
-        if (hidden > 0) {
-            if (hidden === $jobs.length) {
-                //$(this).addClass('collapse');
-            } else {
-
-            }
-        }
     });
 }
 

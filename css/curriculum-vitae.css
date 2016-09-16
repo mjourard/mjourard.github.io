@@ -21,7 +21,7 @@
     color: #888888;
 }
 
-.job.part-time > .job-title:after {
+.job.part-time > .title-block > .job-title:after {
     content: " (part time)";
     text-transform: lowercase;
     font-weight: lighter;
