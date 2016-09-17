@@ -8,7 +8,6 @@ function HideOldContent() {
         var hidden = 0;
         $jobs.each(function() {
             if (timeElementIsTooOld($("time.end", $(this))) || $(this).hasClass("part-time")) {
-                //$(this).addClass('collapse');
                 collapseResponsibilities($(this));
                 hidden++;
             }
