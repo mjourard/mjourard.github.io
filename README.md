@@ -2,6 +2,8 @@ Version Notes:
 
 ### V2.01
 1. Added collapsable content for old entries on my CV, instead of plain hiding them.
+2. Completed the Aepi - About page.
+3. Various CSS page updates
 
 ### V2.00
 1. Released Version 2 of personal website. Used the bootstrap framework
