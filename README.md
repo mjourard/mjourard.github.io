@@ -1,10 +1,7 @@
-Version Notes:
+# README
 
-### V2.01
-1. Added collapsable content for old entries on my CV, instead of plain hiding them.
-2. Completed the Aepi - About page.
-3. Various CSS page updates
+A portfolio site intended to show off the projects I've built in my personal time.
 
-### V2.00
-1. Released Version 2 of personal website. Used the bootstrap framework
-2. Added the completed Adknown Co-op Report, as well as an about section for Aepi
+## Development
+
+See [Development]() for instructions on setting up a dev environment

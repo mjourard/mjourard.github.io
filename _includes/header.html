@@ -1,0 +1,20 @@
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><i class="material-icons">headset</i>Jourard</a>
+            <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li {% if page.nav_name == null %} class="active" {% endif %}><a href="/" id="home">Home</a></li>
+                <li {% if page.nav_name == 'cv' %} class="active" {% endif %}><a href="/cv">CV</a></li>
+                <li {% if page.nav_name == 'blog' %} class="active" {% endif %}><a href="/blog">Blog</a></li>
+                <li><a target="_blank" href="https://github.com/mjourard">Github</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<ul class="sidenav" id="mobile-sidenav">
+    <li {% if page.nav_name == null %} class="active" {% endif %}><a href="/" id="home">Home</a></li>
+    <li {% if page.nav_name == 'cv' %} class="active" {% endif %}><a href="/cv">CV</a></li>
+    <li {% if page.nav_name == 'blog' %} class="active" {% endif %}><a href="/blog">Blog</a></li>
+    <li><a target="_blank" href="https://github.com/mjourard">Github</a></li>
+</ul>
