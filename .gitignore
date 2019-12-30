@@ -4,4 +4,7 @@
 _site/
 .sass-cache
 .jekyll-metadata
+node_modules/
+tests_output/
+geckodriver.log
 

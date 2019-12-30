@@ -4,4 +4,4 @@ A portfolio site intended to show off the projects I've built in my personal tim
 
 ## Development
 
-See [Development]() for instructions on setting up a dev environment
+See [Development](https://github.com/mjourard/mjourard.github.io/blob/master/DEVELOPMENT.md) for instructions on setting up a dev environment

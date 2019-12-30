@@ -35,7 +35,11 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
+  - node_modules/
+  - composer.json
+  - composer.lock
+  - package.json
+  - yarn.lock
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
@@ -43,5 +47,9 @@ exclude:
   - vendor/components/
   - vendor/twbs/
   - .idea/
+  - test/
 
 permalink: /blog/:year/:month/:day/:title
+collections:
+  tools:
+    output: true

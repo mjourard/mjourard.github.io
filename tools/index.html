@@ -1,0 +1,22 @@
+---
+layout: default
+title: Tools Home
+nav_name: tools
+---
+<div class="row">
+    <h1 class="header">Tools</h1>
+</div>
+<div class="row">
+    <div class="col s8 ofset-s2">
+        <ul class="posts collections">
+            {% for tool in site.tools %}
+            <li class="collection-item">
+                <div class="row">
+                    <div class="col s4 left-align"><a href="{{ tool.url }}" title="{{ tool.title }}">{{ tool.name }}</a></div>
+                    <div class="col s8">{{ tool.description }}</div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

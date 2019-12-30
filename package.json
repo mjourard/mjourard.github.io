@@ -1,0 +1,22 @@
+{
+    "name": "mjourard.github.io",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:mjourard/mjourard.github.io.git",
+    "author": "matt.jourard <mjourard@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "chromedriver": "^79.0.0",
+        "esm": "^3.2.25",
+        "geckodriver": "^1.19.1",
+        "mocha": "^6.2.1",
+        "nightwatch": "^1.3.2"
+    },
+    "scripts": {
+	"serve": "bundle exec jekyll serve",
+        "test": "node_modules/mocha/bin/mocha \"./spec/unit/**/*.js\" ",
+        "func-test":  "node_modules/nightwatch/bin/nightwatch \"./spec/func\""
+    },
+    "mocha": {}
+}

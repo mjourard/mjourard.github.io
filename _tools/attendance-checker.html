@@ -1,0 +1,118 @@
+---
+layout: default
+title: Attendance Checker|Tools
+name: Attendance Checker
+nav_name: tools/attendance-checker
+add_css: /css/attendance-checker.css
+description: Checks the current attendees list of a facebook event against a list of assigned leaders instructed to formally invite certain attendees to the facebook event
+---
+<script type="module" src="/js/tools/attendance-checker/index.js"></script>
+<div class="row">
+    <h1 class="header">Attendance Checker</h1>
+</div>
+<div class="row">
+    <div>
+        This tool compares a list of current attendees on a facebook event against a google sheet that keeps track of
+        appointed "leaders" that are responsible for formally inviting people to the event
+    </div>
+</div>
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header"><i class="material-icons">info</i>Explanation</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div>
+                    To get the list of facebook attendees:
+                    <ol>
+                        <li>Go to the event page and click "XY Going * YZ Interested"</li>
+                        <li>Click the <b>going</b> tab</li>
+                        <li>Click and drag while scrolling down until all guests are high lighted</li>
+                        <li>Copy the attendees by pressing <b>ctrl + c</b>|<b>command + c</b></li>
+                    </ol>
+                    You can then paste the attendees into the textbox below
+                </div>
+                <div>
+                    To get the list of google sheets attendees:
+                    <ol>
+                        <li>Go to the sheet in Google Sheets</li>
+                        <li>Click <b>File</b></li>
+                        <li>Click Download -> Comma-separated values</li>
+                        <li>Upload the file here in the Google Sheets section</li>
+                        <li>Alternatively, you can copy + paste the contents of the sheet into the Google Sheets text
+                            area
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">cloud_download</i>Example Files</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col s6">
+                    Example "Facebook Attendees" file:
+                </div>
+                <div class="col s4">
+                    <a type="button" download="facebook_event_attendees.txt" class="btn" id="example-facebook-download" href="/assets/data/attendance-checker/example-files/fbevent.txt">Download</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    Example "Google Sheets Sign Up" file:
+                </div>
+                <div class="col s4">
+                    <a type="button" download="google_sheets_content.tsv" class="btn" id="example-google-download" href="/assets/data/attendance-checker/example-files/sheets.tsv">Download</a>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<div class="divider"></div>
+<div class="row">
+    <div class="input-field col s6">
+        <div class="row">
+            <div class="col s12">
+                <textarea id="fb_event_attendee_ta" class="materialize-textarea attendance-checker__textarea__max-rows"></textarea>
+                <label for="fb_event_attendee_ta">Facebook Event Attendance</label>
+            </div>
+        </div>
+    </div>
+    <div class="input-field col s6">
+        <div class="row">
+            <div class="col s12">
+                <textarea id="gs_signup_ta" class="materialize-textarea attendance-checker__textarea__max-rows"></textarea>
+                <label for="gs_signup_ta">Google Sheet's Signup</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col s2">
+        <button type="button" class="btn logo-secondary" id="calc_differences">Calculate</button>
+    </div>
+    <div class="col s8">
+    </div>
+    <div class="col s2">
+        <button type="button" class="btn">Download</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col offset-s2 s4">
+        <div class="attendance-checker__div__col-header logo-secondary-text">Missing from Facebook</div>
+        <div id="fb_missing_td">
+
+        </div>
+    </div>
+    <div class="col s4">
+        <div class="attendance-checker__div__col-header logo-secondary-text">Missing from Google Sheets</div>
+        <div id="gs_missing_td">
+
+        </div>
+    </div>
+</div>
+
+
+
+

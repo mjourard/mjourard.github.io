@@ -30,4 +30,4 @@ To change the colour scheme of the site, do the following:
 2. edit the SASS file scss/components/_variables.scss, changing the colour variables
 
 3. compile the sass files into the final css distributable with the following command:
-`sass`
+`sass scss/materialize.scss css/materialize.css`
