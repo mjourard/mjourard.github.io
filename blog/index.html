@@ -13,7 +13,6 @@ nav_name: blog
     <div class="col s12 m6">
         <div class="card-panel">
             <p>This blog will be about various problems I come across during my time as a developer and the solutions used to overcome them.</p>
-            <p>I'm hoping that by documenting these issues, that some headaches can be avoided.</p>
         </div>
     </div>
     <div class="col s12 m6">
@@ -21,11 +20,15 @@ nav_name: blog
 
             {% for post in site.posts %}
             <li class="collection-item">
-                <div class="row">
-
+                <div class="row hide-on-small-only">
                     <div class="col s8 left-align"><a href="{{ post.url }}" title="{{ post.title }}">{{
                         post.title }}</a></div>
                     <div class="col s4 right-align">{{ post.date | date_to_string }}</div>
+                </div>
+                <div class="row hide-on-medium-and-up">
+                    <div class="col s12"><a href="{{ post.url }}" title="{{ post.title }}">{{
+                        post.title }}</a></div>
+                    <div class="col s11 offset-s1 grey-text text-darken-1">- {{ post.date | date_to_string }}</div>
                 </div>
             </li>
             {% endfor %}

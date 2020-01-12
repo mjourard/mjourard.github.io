@@ -5,15 +5,40 @@ nav_name: tools
 ---
 <div class="row">
     <h1 class="header">Tools</h1>
+    <div class="description">Free tools that I've built over the years for myself and others. They typically have very
+        niche use cases.
+    </div>
 </div>
 <div class="row">
-    <div class="col s8 ofset-s2">
+    <div class="col s8 ofset-s2 hide-on-small-only">
         <ul class="posts collections">
             {% for tool in site.tools %}
             <li class="collection-item">
                 <div class="row">
-                    <div class="col s4 left-align"><a href="{{ tool.url }}" title="{{ tool.title }}">{{ tool.name }}</a></div>
-                    <div class="col s8">{{ tool.description }}</div>
+                    <div class="col m4 left-align"><a href="{{ tool.url }}" title="{{ tool.title }}">{{ tool.name }}</a>
+                    </div>
+                    <div class="col m8">{{ tool.description }}</div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col s12 hide-on-med-and-up">
+        <ul class="posts collections">
+            {% for tool in site.tools %}
+            <li class="collection-item">
+                <div class="row">
+                    <div class="card logo-green">
+                        <a href="{{ tool.url }}" title="{{ tool.title }}"
+                           class="white-text">
+                            <div class="card-content">
+                                <div class="card-title">{{ tool.name }}</div>
+                            </div>
+                        </a>
+                        <div class="card-content logo-green darken-3">
+                            <span class="white-text">{{ tool.description }}</span>
+                        </div>
+                    </div>
                 </div>
             </li>
             {% endfor %}
