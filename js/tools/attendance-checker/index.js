@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let fbList = lc.parseFacebookAttendees($fbAttendeesTA.value);
         console.log("parsing google sheets attendees");
         let sheets = lc.parseSheetsList($gsSignup.value);
-        let fbNotYetAttending = lc.compareGSheetToFacebookAttendees(sheets, fbList);
+        let tempSheets = Object.assign({}, sheets);
+        let tempFbList = fbList.slice();
+        let fbNotYetAttending = lc.compareGSheetToFacebookAttendees(tempSheets, tempFbList);
         let fbListUI = new ListUI($fbMissing);
         fbListUI.clear();
         Object.keys(fbNotYetAttending).forEach(leader => {
@@ -35,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 fbListUI.appendListItem(person);
             });
         });
-        let attendeesNotAssigned = lc.compareFacebookAttendeesToGSheet(sheets, fbList);
+        tempSheets = Object.assign({}, sheets);
+        tempFbList = fbList.slice();
+        let attendeesNotAssigned = lc.compareFacebookAttendeesToGSheet(tempSheets, tempFbList);
         let gsListUI = new ListUI($gsMissing);
         gsListUI.clear();
         if (attendeesNotAssigned.length > 0) {
