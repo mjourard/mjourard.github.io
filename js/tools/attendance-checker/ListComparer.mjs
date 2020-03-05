@@ -83,8 +83,18 @@ class ListComparer {
         if (Object.keys(sheet).length === 0) {
             return fbList
         }
-        //add the leaders to the keys to check
+        const splitCharacters  = ["/", ":"];
+
+        //ensure the leaders are all keys of the sheet object so they are counted in the check
         Object.keys(sheet).forEach(key => {
+            //check for leaders that are split by special characters
+            splitCharacters.forEach(delim => {
+                sheet[key].split(delim).forEach(subleader => {
+                    sheet[subleader.trim()] = "leader";
+                });
+            });
+
+
             sheet[sheet[key]] = "leader";
         });
         return fbList.filter(name => {

@@ -202,6 +202,8 @@ describe('ListComparer', function () {
                 "Nora Miller": "Gwen Morse",
                 "Hallam Bate": "Tatiana Parra/Aleah Cox",
                 "Masuma Frazier": "Tatiana Parra/Aleah Cox",
+                "John Smith": "Grad Students: Rick Einstein",
+                "Jane Doe": "Alumni: Adam Horzues"
             };
             let unaccountedFor = [
                 "dogbert",
@@ -218,7 +220,9 @@ describe('ListComparer', function () {
                 //include the leaders
                 "Frederick Talbot",
                 "Gwen Morse",
-                "Tatiana Parra/Aleah Cox"
+                "Tatiana Parra",
+                "Rick Einstein",
+                "Adam Horzues"
             ];
 
             //add in people that aren't in the google sheet
