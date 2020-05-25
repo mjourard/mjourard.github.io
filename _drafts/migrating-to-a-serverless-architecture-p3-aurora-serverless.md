@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Migrating To A Serverless Architecture P3: Aurora Serverless"
-date: TBD
 ---
 Talking points:
 1. The dataservice API and hidden costs
