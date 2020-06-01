@@ -8,6 +8,8 @@
     {% if page.add_css %}
         <link rel="stylesheet" type="text/css" href="{{ page.add_css }}">
     {% endif %}
+    {% feed_meta %}
+    {% seo %}
 </head>
 <body>
 {% include header.html %}
