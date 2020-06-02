@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What Was Trick or Eat?"
-tags: trickoreat draft
+tags: Trick-or-Eat Draft
 ---
 
 * TOC

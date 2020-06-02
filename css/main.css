@@ -35,3 +35,17 @@ nav {
     background-color: white;
     border-radius: 5px;
 }
+
+.post-date {
+    color: #606060;
+    font-size: 14pt;
+}
+
+.post-tag {
+    font-size: 14pt;
+}
+
+.post-title {
+    margin-bottom: 6px;
+    margin-top: 24px;
+}

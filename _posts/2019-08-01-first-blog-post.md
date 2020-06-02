@@ -2,6 +2,7 @@
 layout: post
 title: "Site Facelift Goes Live!"
 date: 2019-08-01
+tags: Update
 ---
 Blogging and Project Showcasing. Those were the motivations behind my site's facelift. It served its purpose of hosting my co-op reports from university, but as you can see from the screenshots that it looked pretty dated and wasn't responsive. 
 
