@@ -3,13 +3,13 @@ layout: post
 title: "What Was Trick or Eat?"
 tags: Trick-or-Eat Draft
 ---
+Towards the end of my university career, I looked to putting my development skills towards a good cause. 
+I gravitated towards helping to end food insecurity in Canada by building an app for Trick or Eat.
 
 * TOC
-{:toc}
-
+{:toc} 
 
 ## A Primer On Food Insecurity
-
 Household food insecurity is the inadequate or insecure access to food due to financial constraints. 
 As of 2016, prevalence of food insecurity ranges from 10.2% in British Columbia to 50.8% in Nunavut. 
 Rates are even worse when looking at the number of children in food insecure households, where the number is closer to 1 in 6 nationwide.
@@ -21,7 +21,7 @@ Rates are even worse when looking at the number of children in food insecure hou
 [Meal Exchange](https://www.mealexchange.com/team-info) is a nationally-recognized Canadian non-profit charity which coordinates student volunteers on university campuses in an effort to fight food insecurity across Canada. 
 They support community-driven solutions such as food banks, campus kitchens, gardens and farms. 
 They also provide mentorship and resources, connect students with like-minded peers across the country, and provide a single point of contact for provincial and national stakeholders in business, civil society and media.
-
+ 
 Trick or Eat is Meal Exchange's Halloween food drive, in which student volunteers go door-to-door on Halloween collecting non-perishable food to give to a local cause, chosen at the discretion of the MX chapter running the event.
 
 While the event was fun and extremely effective at Guelph, [bringing in between 20,000 to 40,000 pounds of food](https://www.guelphtoday.com/local-news/scary-situation-for-food-bank-as-u-of-g-students-wont-be-collecting-food-this-halloween-1716067), it was always a hectic start.

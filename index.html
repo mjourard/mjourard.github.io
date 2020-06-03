@@ -14,7 +14,7 @@ title: Matt Jourard|Forgetting Semicolons Since 2011
               </span>
             </div>
         </div>
-        <div class="row align-wrapper ">
+        <div class="row valign-stretch">
             <div class="col s12 m12 l6">
                 <div class="card">
                     <div class="card-content">
@@ -28,15 +28,15 @@ title: Matt Jourard|Forgetting Semicolons Since 2011
                     </div>
                     <div class="card-content grey lighten-4">
                         <div id="project_card_2">
-                            <p>An app I made in University for running the annual door-to-door Halloween food drive,
+                            <p>An app I made in school for running the annual door-to-door Halloween food drive,
                                 Trick-or-Eat.</p>
                             <p>Hosted on AWS and powered by Cloudfront, S3, API Gateway, Lambda, SES and RDS Aurora
                                 Serverless.</p>
                             <div class="card-action">
                                 <div class="container-flex-horizontal">
-                                    <a href="https://guelphtrickoreat.ca">Demo</a>
-                                    <a href="https://github.com/mjourard/trick-or-eat-demo">Github</a>
-                                    <a href="{{site.url}}/blog/2020/06/01/what-was-trick-or-eat">Blog</a>
+                                    <a class="green-text text-darken-1" href="https://guelphtrickoreat.ca">Demo</a>
+                                    <a class="green-text text-darken-1" href="https://github.com/mjourard/trick-or-eat-demo">Github</a>
+                                    <a class="green-text text-darken-1" href="{{site.url}}/blog/2020/06/01/what-was-trick-or-eat">Blog</a>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@ title: Matt Jourard|Forgetting Semicolons Since 2011
                             <p>A react app for viewing photos with the intended look of opening up the family photo
                                 album</p>
                             <div class="card-action text-accent-3">
-                                <a href="https://mjourard.github.io/family-photos/">Demo</a>
+                                <a class="green-text text-darken-1" href="https://mjourard.github.io/family-photos/">Demo</a>
                             </div>
                         </div>
                     </div>
@@ -55,6 +55,9 @@ title: Matt Jourard|Forgetting Semicolons Since 2011
                     {%- assign latest_post = site.posts | sort: "date" | last -%}
                     <div class="card-content">
                         <span class="card-title">{{ latest_post.title }}</span>
+                        <p class="post-date">- {{ latest_post.date | date_to_string }}</p>
+                    </div>
+                    <div class="card-content grey lighten-4">
                         <p>{{ latest_post.excerpt }}</p>
                     </div>
                     <a class="green-text text-darken-1" href="{{ latest_post.url }}">

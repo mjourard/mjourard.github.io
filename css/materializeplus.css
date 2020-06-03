@@ -16,6 +16,11 @@ main {
     height: 100%;
 }
 
+.valign-stretch {
+    display: flex;
+    align-items: flex-start;
+}
+
 .page-footer {
     flex-shrink: 0;
 }
