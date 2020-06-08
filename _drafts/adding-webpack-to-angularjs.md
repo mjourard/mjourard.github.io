@@ -1,4 +1,399 @@
 ---
 layout: post
-title: "Adding Webpack to AngularJS for better deployments to S3!"
+title: "Adding Webpack to AngularJS for better deployments to S3"
 ---
+
+AngularJS was the first version of Google's frontend framework [Angular](https://angular.io/). 
+It was initially released back in 2010, which was a life time ago in the frontend development community. 
+In that time, different tools and standards had evolved to make deploying frontend code easier. 
+This article will demonstrate how to integrate the bundler [Webpack](https://webpack.js.org/) into your AngularJS project
+to create an easily deployable package that with different configurations for different deployment environments (dev/test/prod).
+
+## Audience
+
+This article is intended for devs working on a legacy AngularJS application with a familiarity of npm and little to no prior webpack experience.
+If you've never used webpack, please give the  [webpack getting started](https://webpack.js.org/guides/getting-started/) guide a quick readthrough to familiarize yourself with webpack concepts.
+
+Also, please do not start new projects using AngularJS, as it's currently [on LTS support that will end on June 30, 2021](https://blog.angular.io/stable-angularjs-and-long-term-support-7e077635ee9c).   
+ 
+## Why Add A Bundler?
+
+Here is a small list of benefits a bundler can provide:
+* file concatenation (bundling)
+* dependency resolution
+* transpiling and minification
+* config value replacements 
+
+There are many more, and usually you only need to find the right plugin to get webpack to do what you want.
+
+## Why Did I Do This?
+
+I wanted to host my angularJS app in AWS, using the standard static site deployment of an S3 bucket behind Cloudfront.
+
+I also wanted to have local libraries for development so that I could work while in spots with a poor or spotty internet connection.
+
+Lastly, there were some secrets and config values that changed between deploying to my dev environment vs a production environment. 
+Webpack allowed me to create different configs based on my environment, which meant deploying to both took no time at all.  
+
+## Getting Started
+
+To start, let's assume you have an AngularJS app with a typical directory structure of consisting of components, services, images, css and AngularJS boilerplate.
+For this article, I will be using the AngularJS Phone Gallery tutorial app as an example.
+When you've checked out the repo on the last step, the app code looks similar to this: 
+
+```
+.
+├── app
+│   ├── app.animations.css
+│   ├── app.animations.js
+│   ├── app.config.js
+│   ├── app.css
+│   ├── app.module.js
+│   ├── core
+│   │   ├── checkmark
+│   │   │   ├── checkmark.filter.js
+│   │   │   └── checkmark.filter.spec.js
+│   │   ├── core.module.js
+│   │   └── phone
+│   │       ├── phone.module.js
+│   │       ├── phone.service.js
+│   │       └── phone.service.spec.js
+│   ├── img
+│   │   └── phones
+│   │       ├── dell-streak-7.0.jpg
+│   │       └── t-mobile-mytouch-4g.5.jpg
+│   ├── index.html
+│   ├── phone-detail
+│   │   ├── phone-detail.component.js
+│   │   ├── phone-detail.component.spec.js
+│   │   ├── phone-detail.module.js
+│   │   └── phone-detail.template.html
+│   ├── phone-list
+│   │   ├── phone-list.component.js
+│   │   ├── phone-list.component.spec.js
+│   │   ├── phone-list.module.js
+│   │   └── phone-list.template.html
+│   └── phones
+│       ├── dell-streak-7.json
+│       └── t-mobile-mytouch-4g.json
+``` 
+ 
+If you don't have a package.json file like above, run `npm init -y` to create a default one. 
+
+Start by installing webpack as well as creating config files for webpack:
+```
+npm install -D webpack webpack-cli webpack-dev-server webpack-merge
+touch webpack.common.js webpack.dev.js webpack.prod.js
+```   
+
+The file **webpack.common.js** will be the base webpack config that will contain all the settings that don't change between environments.
+**webpack.dev.js** and **webpack.prod.js** will load in **webpack.common.js** and append final values and plugins as necessary
+
+We'll also need a few different plugins to get our AngularJS app working:
+```
+npm install -D html-webpack-loader css-loader file-loader style-loader copy-webpack-plugin
+``` 
+An explanation for what each of the plugins do:
+* html-webpack-loader: copies over your index.html file into your **dist/** folder, subbing in certain values into the markup
+* css-loader: resolves import/require statements of css files within JS and copies the files into your **dist/** folder
+* file-loader: resolves asset files (images) import/requires and copies the files into the **dist/** folder
+* style-loader: injects css into the DOM
+* copy-webpack-plugin: this does a straight copy from your source to your dist folder, we'll need this if we want to avoid adding require scripts everywhere
+
+Now we will add an **npm run** command to execute webpack for us.
+Within your package.json, add the following object:
+```
+"scripts": {
+    "build:dev": "webpack --config webpack.dev.js"
+}
+``` 
+For the Phone Gallery example, because a scripts object already exists, I'll only be adding the `"build:dev": "webpack --config webpack.dev.js"` part to it. 
+ 
+Now, we need to add config options to tell webpack:
+ * where our entry point is
+ * to generate the html file
+ * to handle our css/asset files  
+We'll start with defining a base config in webpack.common.js, and then merging it with some dev config values.
+Place this in your webpack.common.js file: 
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = title => {
+    return {
+        entry: {
+            app: './app/app.module.js'
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                title: title,
+                template: './app/index.html',
+                inject: true
+            }),
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: './*/**/*.html',
+                        to: '[path]/[name].[ext]',
+                        context: './app/'
+                    },
+                    {from: './*/**/*.css', to: '[path]/[name].[ext]', context: './app/'},
+                    {from: 'img/**', to: '[path]/[name].[ext]', context: './app/'}
+                ]
+            })
+        ],
+        output: {
+            filename: '[name].bundle.js',
+            path: path.resolve(__dirname, 'dist')
+        }
+    }
+}
+``` 
+
+A quick rundown of the above. 
+We first require in the webpack plugins and npm packages we need to make this work
+Then we define an export module for our webpack config - a function that takes in a single string representing a title value for our AngularJS app, and then defines some plugin behavior.
+The entry says where the first file we should load is. Make this your app.module.js, with a path relative to your **webpack.common.js** file.
+Plugins define the intermeediary behavior.
+
+HtmlWebPack will generate the **index.html** for the AngularJS app based on the existing index.html. We'll need to modify it a bit before we run it.
+* title is just a variable name used in the template rendering
+* template is a relative path for the html template that you want to base your generation from
+* inject signifies if variables should be injected into the template itself, we'll be on that in a minute.
+
+CopyPlugin will copy over needed files from source to destination, such as css assets and component templates.
+This can be avoided with require statements within the source, but we are going for minimal source code changes to integrate webpack so that will be left as an exercise for the reader.
+
+Output contains the final output filename, where [name] refers to the key in within the **entry** object and path is the file path to deposit new distributable files.
+
+Now we can start modifying the source code to be webpack compliant.
+
+#### index.html
+
+First off, remove any `<script>` or `<link>` tags and they will be included during bundling.
+Next, replace the contents of the `<title>` tag with `<%= htmlWebpackPlugin.options.title %>`.
+This will put the value of the **title** property found within the HtmlWebpackPlugin's definition into the template.
+> Note: you can pass in arbitrary values this way. 
+> In my project, I needed a google maps api key within my `<script>` tag, which I set through the HtmlWebpackPlugin object
+
+Your final index.html should look something like this:
+```
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+  <head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+  </body>
+</html>
+``` 
+
+Real simple.
+
+#### app.module.js
+
+If you ran your webpack config, you'll still get this error:
+```
+ReferenceError: angular is not defined      app.bundle.js line 870
+```
+This is because webpack is trying to look at app.module.js amd doesn't see any way to figure out what `angular` is. 
+For this reason, we add `require` statements to `app.module.js` pointing to all the libraries we need.
+We start with this:
+```angularjs
+'use strict';
+
+// Define the `phonecatApp` module
+angular.module('phonecatApp', [
+  'ngAnimate',
+  'ngRoute',
+  'core',
+  'phoneDetail',
+  'phoneList'
+]);
+```
+
+and we end with this:
+
+```angularjs
+'use strict';
+require('jquery');
+const angular = require('angular');
+require('angular-animate');
+require('angular-resource');
+require('angular-route');
+
+// Define the `phonecatApp` module
+angular.module('phonecatApp', [
+  'ngAnimate',
+  'ngRoute',
+  'core',
+  'phoneDetail',
+  'phoneList'
+]);
+
+require('./app.animations');
+require('./app.config');
+require('./core/core.module');
+require('./core/checkmark/checkmark.filter');
+require('./core/phone/phone.module');
+require('./phone-detail/phone-detail.module');
+require('./phone-list/phone-list.module');
+```
+  
+Ok, that's a lot of changes...
+This telling webpack where everything is and what is used. 
+Note the order of the require statements, in which jquery is included first, then angularjs, then its additional libraries.
+On the user-defined application side, we also define the top-level app config and animations first, then the core.module, then the core.services and finally the different components.
+
+In addition to the above, you'll also need to go into the individual *.module.js files and link together the files of the module.
+Once you do that, everything should be working...uh oh
+```
+Possibly unhandled rejection: {"data":"
+<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"utf-8\">
+    <title>Error</title>
+</head>
+<body>
+    <pre>Cannot GET /phones/phones.json</pre>
+</body>
+</html>","status":404,"config":{"method":"GET",...
+```
+
+Ah, it can't find `phones.json` file that the app uses to mock the http calls. 
+You can confirm this by looking in the `dist/` folder and finding no `phones/` folder.
+We'll fix this by adding a pattern to the CopyPlugin:
+```
+{from: 'phones/**', to: '[path]/[name].[ext]', context: './app/'}
+```
+Ok, now everything loads without errors in the console and we are seeing the app, but it looks...off:
+![Webpack Angular Phonecat Screenshot](/assets/img/webpack_angular_phonecat_no_bs.png)
+
+Ah, it's missing bootstrap (as well as some other css files that were initially loaded in the index.html).
+This is fixed by adding loader rules for css files. I mentioned it earlier when installing the `css-loader`.
+You'll create a new **module** object in your webpack config, with a **rules** array that says what files to match for using regex and what type of laoder to use for the matched files.
+The object:
+```
+ module: {
+            rules: [
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader'
+                    ]
+                },
+            ]
+        }
+```
+
+Give it a reload and ... it now fails to compile:
+
+```
+Entrypoint app = app.bundle.js app.a8f3ffedf81d13734087.hot-update.js
+[./app/app.module.js] 597 bytes {app} [built]
+[./node_modules/bootstrap/dist/css/bootstrap.css] 1.52 KiB {app} [built]
+[./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.eot] 281 bytes {app} [built] [failed] [1 error]
+[./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.svg] 425 bytes {app} [built] [failed] [1 error]
+[./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf] 284 bytes {app} [built] [failed] [1 error]
+[./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff] 284 bytes {app} [built] [failed] [1 error]
+[./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2] 284 bytes {app} [built] [failed] [1 error]
+[./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.css] 151 KiB {app} [built]
+[./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB {app} [built]
+[./node_modules/css-loader/dist/runtime/getUrl.js] 830 bytes {app} [built]
+[./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB {app} [built]
+    + 53 hidden modules
+
+ERROR in ./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf 1:0
+Module parse failed: Unexpected character '' (1:0)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+(Source code omitted for this binary file)
+ @ ./node_modules/bootstrap/dist/css/bootstrap.css (./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.css) 7:36-88
+ @ ./node_modules/bootstrap/dist/css/bootstrap.css
+ @ ./app/app.module.js
+```
+
+Right, the boostrap css file is going to link to other assets, namely font and icon files. 
+No problem, we'll add more rules to load those in:
+```
+{
+    test: /\.(png|svg|jpg|gif|ico)$/,
+    use: [
+        'file-loader'
+    ]
+},
+{
+    test: /\.(woff|woff2|eot|ttf|otf)$/,
+    use: [
+        'file-loader'
+    ]
+}
+```
+I prefer two lines here to keep the logical types of files separate (image vs font assets).
+Ok, getting closer, but still not quite there...probably missing the user-defined css files:
+```
+require('./app.css');
+require('./app.animations.css');
+```
+Alright! Now it looks like the application we started with! 
+But wait, clicking on one of the phones gives a ton of errors once the secondary view loads, and all the animations are broken.
+
+Seems app.animations.js is broken. Will continue investigating this...
+
+and our current **webpack.common.js**:
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = title => {
+    return {
+        entry: {
+            app: './app/app.module.js'
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                title: title,
+                template: './app/index.html',
+                inject: true
+            }),
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: './*/**/*.html',
+                        to: '[path]/[name].[ext]',
+                        context: './app/'
+                    },
+                    {from: './*/**/*.css', to: '[path]/[name].[ext]', context: './app/'},
+                    {from: 'img/**', to: '[path]/[name].[ext]', context: './app/'},
+                    {from: 'phones/**', to: '[path]/[name].[ext]', context: './app/'}
+                ]
+            })
+        ],
+        output: {
+            filename: '[name].bundle.js',
+            path: path.resolve(__dirname, 'dist')
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader'
+                    ]
+                },
+            ]
+        }
+    }
+}
+```
+
