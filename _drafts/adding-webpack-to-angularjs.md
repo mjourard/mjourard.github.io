@@ -138,7 +138,7 @@ module.exports = title => {
                         to: '[path]/[name].[ext]',
                         context: './app/'
                     },
-                    {from: './*/**/*.css', to: '[path]/[name].[ext]', context: './app/'},
+                    {from: './**/*.css', to: '[path]/[name].[ext]', context: './app/'},
                     {from: 'img/**', to: '[path]/[name].[ext]', context: './app/'}
                 ]
             })
@@ -178,7 +178,7 @@ This will put the value of the **title** property found within the HtmlWebpackPl
 > In my project, I needed a google maps api key within my `<script>` tag, which I set through the HtmlWebpackPlugin object
 
 Your final index.html should look something like this:
-```
+```html
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
   <head>
@@ -186,11 +186,9 @@ Your final index.html should look something like this:
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-
     <div class="view-container">
       <div ng-view class="view-frame"></div>
     </div>
-
   </body>
 </html>
 ``` 
@@ -223,7 +221,11 @@ and we end with this:
 
 ```angularjs
 'use strict';
-require('jquery');
+require('bootstrap/dist/css/bootstrap.css');
+require('./app.css');
+require('./app.animations.css');
+
+window.jQuery = require('jquery');
 const angular = require('angular');
 require('angular-animate');
 require('angular-resource');
@@ -238,8 +240,8 @@ angular.module('phonecatApp', [
   'phoneList'
 ]);
 
-require('./app.animations');
 require('./app.config');
+require('./app.animations');
 require('./core/core.module');
 require('./core/checkmark/checkmark.filter');
 require('./core/phone/phone.module');
@@ -247,12 +249,14 @@ require('./phone-detail/phone-detail.module');
 require('./phone-list/phone-list.module');
 ```
   
-Ok, that's a lot of changes...
-This telling webpack where everything is and what is used. 
-Note the order of the require statements, in which jquery is included first, then angularjs, then its additional libraries.
-On the user-defined application side, we also define the top-level app config and animations first, then the core.module, then the core.services and finally the different components.
+Ok, that's a lot of changes... This is telling webpack where everything is and what is used.
 
-In addition to the above, you'll also need to go into the individual *.module.js files and link together the files of the module.
+The order in which everything is loaded matches how it was loaded before on in the `index.html` page.
+
+We're also setting window.jQuery to be the result of loading the jquery library because the library itself does not assign itself
+to the top-level window object if loaded via require. Without that line, angular animations are broken.
+
+In addition to the above, you'll also need to go into the individual *.module.js files within the app and link together the files of the module.
 Once you do that, everything should be working...uh oh
 ```
 Possibly unhandled rejection: {"data":"
@@ -268,7 +272,7 @@ Possibly unhandled rejection: {"data":"
 </html>","status":404,"config":{"method":"GET",...
 ```
 
-Ah, it can't find `phones.json` file that the app uses to mock the http calls. 
+Ah, it can't find the `phones.json` file which is used by the app to mock http calls to a backend. 
 You can confirm this by looking in the `dist/` folder and finding no `phones/` folder.
 We'll fix this by adding a pattern to the CopyPlugin:
 ```
@@ -368,11 +372,11 @@ module.exports = title => {
             new CopyPlugin({
                 patterns: [
                     {
-                        from: './*/**/*.html',
+                        from: './**/*.html',
                         to: '[path]/[name].[ext]',
                         context: './app/'
                     },
-                    {from: './*/**/*.css', to: '[path]/[name].[ext]', context: './app/'},
+                    {from: './**/*.css', to: '[path]/[name].[ext]', context: './app/'},
                     {from: 'img/**', to: '[path]/[name].[ext]', context: './app/'},
                     {from: 'phones/**', to: '[path]/[name].[ext]', context: './app/'}
                 ]
@@ -397,3 +401,4 @@ module.exports = title => {
 }
 ```
 
+With this, we've loaded everything via webpack
