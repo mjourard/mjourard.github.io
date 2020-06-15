@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What Was Trick or Eat?"
-tags: Trick-or-Eat Draft
+tags: Trick-or-Eat
 ---
 Towards the end of my university career, I looked to putting my development skills towards a good cause. 
 I gravitated towards helping to end food insecurity in Canada by building an app for Trick or Eat.
@@ -41,20 +41,19 @@ Each of the above steps is very chaotic and challenging when done via pen and pa
 The Trick or Eat app was designed to make organizing and running the event easier.
 The app would run the event, allowing participants to do the following:
 
-    * sign up
-    * sign the waiver
-    * create their teams
-    * receive their bus and routes
-    * submit event feedback
+{:.browser-default}
+* sign up
+* sign the waiver
+* create their teams
+* receive their bus and routes
+* submit event feedback
   
 In subsequent years, the following would be easier through the app:
 
-    * Contacting last year's participants
-    * Passing along route information to event staff
-        - the route on a map
-        - amount of food collected in each route
-        - any issues with the route to be fixed or avoided next year
-    * Passing along collected participant feedback to further improve events in the years following
+{:.browser-default}
+ * Contacting last year's participants
+ * Passing along route information and statistics to event staff
+ * Passing along collected participant feedback to further improve events in the years following
 
 The above behaviours necessitated having regular participant features as well as admin features, which lead to using [role-based access control](https://en.wikipedia.org/wiki/Role-based_access_control) 
 

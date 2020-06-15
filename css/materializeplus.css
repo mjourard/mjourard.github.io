@@ -54,3 +54,7 @@ main {
     display: inline-block;
 }
 
+/* Browser default for nested lists*/
+ul.browser-default.recurse-list > * {
+    list-style-type: unset;
+}
