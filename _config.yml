@@ -55,3 +55,19 @@ permalink: /blog/:year/:month/:day/:title
 collections:
   tools:
     output: true
+# Gives all posts in the _posts and _drafts folders the frontmatter variables found in the "values" section
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      add_css: "/css/posts.css"
+  -
+    scope:
+      path: ""
+      type: "drafts"
+    values:
+      layout: "post"
+      add_css: "/css/posts.css"
