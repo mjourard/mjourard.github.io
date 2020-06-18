@@ -1,5 +1,5 @@
 ---
-title: "Adding Webpack to AngularJS for better deployments to S3"
+title: "Adding Webpack to AngularJS For Better Deployments To S3"
 tags: AngularJS Webpack Bundlers
 ---
 
@@ -37,9 +37,9 @@ For this article, I will be using the AngularJS Phone Gallery tutorial app as an
 
 [Google's Repo](https://github.com/angular/angular-phonecat)
 
-[My forked repo with webpack](https://github.com/mjourard/angular-phonecat)
+[My forked repo with completed webpack example](https://github.com/mjourard/angular-phonecat)
 
-Step zero for adding webpack is going to be making your npm (or yarn) friendly. 
+Step zero for adding webpack is going to be making your project npm (or yarn) friendly. 
 If you don't have a package.json file yet, run `npm init -y` to create a default one. 
 
 Start by installing webpack as well as creating config files for webpack:
@@ -69,9 +69,9 @@ Now we will add some **npm run** commands to execute webpack with our configs fo
 Within your package.json, add the following object:
 {% highlight json %}
 "scripts": {
-    "build:dev": "webpack --config webpack.dev.js"
+    "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
 }
 {% endhighlight %} 
 
@@ -79,11 +79,11 @@ Now, we need to add config options to tell webpack:
 
 {:.browser-default}
  1. where our entry point is
- 2. to generate the html file
- 3. to handle our css/asset files  
+ 2. how to generate the html file
+ 3. how to handle our css/asset files  
 
-We'll start with defining a base config in webpack.common.js, and then merging it with some dev config values.
-Place this in your webpack.common.js file: 
+We'll start with defining a base config in **webpack.common.js**, and then merging it with some basic dev config values.
+Place this in your **webpack.common.js** file: 
 
 {% highlight javascript %}
 const path = require('path');
@@ -172,23 +172,24 @@ This can be avoided with require statements within the source, but we are going 
 
 As for the contents of **webpack.dev.js**, it is only loading in the contents of our common file as well as setting up a dev server for hot reloading.
 
-Now we can start modifying the source code to be webpack compliant.
+Now we can start modifying our AngularJS source code to be webpack compliant.
 
 ## Source Code Modifications
 
 #### index.html
 
-First off, remove any `<script>` or `<link>` tags of resources that will be included during bundling.
-Next, replace the contents of the `<title>` tag with
+First off, within your existing base **index.html** remove any `<script>` or `<link>` tags of resources, as they will be included during bundling into a single file that will be required by the new **index.html**.
+Next, replace the `<title></title>` tag with
  
-```<%= htmlWebpackPlugin.options.title %>```
+```<title><%= htmlWebpackPlugin.options.title %></title>```
 
 This will put the value of the **title** property found within the HtmlWebpackPlugin's definition into the template.
 > Note: you can pass in arbitrary values this way. 
-> In my project, I needed a Google Maps api key within my `<script>` tag, which I set through the HtmlWebpackPlugin object
+> In my project, I needed a Google Maps api key within a `<script>` tag, which I set through the HtmlWebpackPlugin object.
+> That example can be found [here](https://github.com/mjourard/trick-or-eat-demo/blob/master/frontendTOE/app/index.html) 
 
 Your final index.html should look something like this:
-{% highlight html linenos %}
+{% highlight html %}
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
   <head>
@@ -214,7 +215,7 @@ ReferenceError: angular is not defined      app.bundle.js line 870
 This is because webpack is trying to look at app.module.js amd doesn't see any way to figure out what `angular` is. 
 For this reason, we add `require` statements to `app.module.js` pointing to all the libraries we need.
 We start with this:
-{% highlight javascript linenos %}
+{% highlight javascript %}
 'use strict';
 
 // Define the `phonecatApp` module
@@ -229,7 +230,7 @@ angular.module('phonecatApp', [
 
 and we end with this:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 'use strict';
 require('bootstrap/dist/css/bootstrap.css');
 require('./app.css');
@@ -284,29 +285,31 @@ Ah, it can't find the `phones.json` file which is used by the app to mock http c
 You can confirm this by looking in the `dist/` folder and finding no `phones/` folder.
 We'll fix this by adding a pattern to the CopyPlugin:
 {% highlight json %}
-{from: 'phones/**', to: '[path]/[name].[ext]', context: './app/'}
+{"from": "phones/**", "to": "[path]/[name].[ext]", "context": "./app/"}
 {% endhighlight %}
 Ok, now everything loads without errors in the console and we are seeing the app, but it looks...off:
 ![Webpack Angular Phonecat Screenshot](/assets/img/webpack_angular_phonecat_no_bs.png)
 
-TODO: add screenshot of what it should look like and do a side-by-side VS of them 
+VS (the original)
 
-Ah, it's missing bootstrap (as well as some other css files that were initially loaded in the index.html).
-This is fixed by adding loader rules for css files. I mentioned it earlier when installing the `css-loader`.
+![Angular Phonecat Complete Screenshot](/assets/img/webpack_angular_phonecat_complete.png) 
+
+Ah, it's missing bootstrap (as well as some other css files that were initially loaded in index.html).
+This is fixed by adding loader rules for css files, which will be handled by the `css-loader` plugin.
 You'll create a new **module** object in your webpack config, with a **rules** array that says what files to match for using regex and what type of laoder to use for the matched files.
 The object:
 {% highlight json %}
- module: {
-            rules: [
-                {
-                    test: /\.css$/,
-                    use: [
-                        'style-loader',
-                        'css-loader'
-                    ]
-                },
-            ]
-        }
+"module": {
+  "rules": [
+    {
+      "test": /\.css$/,
+      "use": [
+        "style-loader",
+        "css-loader"
+      ]
+    },
+  ]
+}
 {% endhighlight %}
 
 Give it a reload and ... it now fails to compile:
@@ -339,16 +342,16 @@ Right, the boostrap css file is going to link to other assets, namely font and i
 No problem, we'll add more rules to load those in:
 {% highlight json %}
 {
-    test: /\.(png|svg|jpg|gif|ico)$/,
-    use: [
-        'file-loader'
-    ]
+  "test": /\.(png|svg|jpg|gif|ico)$/,
+  "use": [
+    "file-loader"
+  ]
 },
 {
-    test: /\.(woff|woff2|eot|ttf|otf)$/,
-    use: [
-        'file-loader'
-    ]
+  "test": /\.(woff|woff2|eot|ttf|otf)$/,
+  "use": [
+    "file-loader"
+  ]
 }
 {% endhighlight %}
 I prefer two objects here to keep the logical types of files separate (image vs font assets).

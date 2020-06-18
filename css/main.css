@@ -1,12 +1,12 @@
 /*@import 'jekyll-pygments/monokai.css';*/
 @import 'jekyll-pygments/default.css';
-html { font-size: calc(1em + 1vw) }
-h1 { font-size: 2em }
-h2 { font-size: 1.8em }
-h3 { font-size: 1.6em }
-h4 { font-size: 1.4em }
-h5 { font-size: 1.2em }
-h6 { font-size: 1.1em }
+html { font-size: calc(1rem + 0.8vw) }
+h1 { font-size: 2rem }
+h2 { font-size: 1.8rem }
+h3 { font-size: 1.6rem }
+h4 { font-size: 1.4rem }
+h5 { font-size: 1.2rem }
+h6 { font-size: 1.1rem }
 
 button {
     font-size: inherit;
@@ -21,7 +21,7 @@ input {
 
 
 body {
-    font-size: 16pt;
+    font-size: 15pt;
     line-height: 1.4;
 }
 
