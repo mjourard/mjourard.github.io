@@ -17,8 +17,9 @@ main {
 }
 
 .valign-stretch {
-    display: flex;
-    align-items: flex-start;
+    /*TODO: use this class to properly stretch the cards on the first page to always be the same height*/
+    /*display: flex;*/
+    /*align-items: flex-start;*/
 }
 
 .page-footer {
