@@ -8,6 +8,15 @@ To get this working on my machine (lenovo T430 - Ubuntu 18.04), I had to do the 
 
 `sudo apt install zlib1g-dev`
 
+## Updated for Lenovo T430 - Ubuntu 20.04 - post-upgrade
+```
+# update the header of /usr/bin/bundler to point at /usr/bin/ruby
+# as that now points at the current ruby version
+
+# then, install the new version's dev package
+sudo apt install ruby2.7-dev
+```
+
 ## Serve Locally
 To run the site locally, run this while in the root directory of the project:
 
