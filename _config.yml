@@ -51,7 +51,7 @@ exclude:
   - .idea/
   - test/
 
-permalink: /blog/:year/:month/:day/:title
+permalink: /:categories/:year/:month/:day/:title
 collections:
   tools:
     output: true
@@ -63,6 +63,12 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      add_css: "/css/posts.css"
+  - scope:
+      path: "blogs/fight-journal"
+      type: "posts"
+    values:
+      layout: "fight-journal-post"
       add_css: "/css/posts.css"
   -
     scope:

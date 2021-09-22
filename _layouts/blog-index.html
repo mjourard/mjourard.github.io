@@ -1,14 +1,15 @@
 ---
 layout: default
-title: Standup Stories
-nav_name: blog
+title: Untitled Blog
+nav_name: untitled-blog
 ---
 <div class="row">
     <div class="col s12 m6 offset-m3">
-        <h1>{{ page.title }}</h1>
+        <h2>{{ page.title }}</h2>
     </div>
     <div class="col s12 m6 offset-m3">
-        <h6>A blog about various problems I've come across while developing software and my attempts to solve them.</h6>
+        <p>{{ page.p1 }}</p>
+        <p>{{ page.p2 }} </p>
     </div>
 </div>
 <div class="divider"></div>
@@ -16,6 +17,7 @@ nav_name: blog
     <div class="col s12 offset-m3 m6">
         <ul class="posts collections">
             {% for post in site.posts %}
+            {% if post.categories contains page.nav_name %}
             <li class="collection-item">
                 <div class="row show-on-medium-and-up hide-on-small-only">
                     <div class="col m8 left-align"><a href="{{ post.url }}" title="{{ post.title }}">{{
@@ -27,15 +29,9 @@ nav_name: blog
                         post.title }}</a></div>
                     <div class="col s11 offset-s1 grey-text text-darken-1">- {{ post.date | date_to_string }}</div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <span>[{% for category in post.categories %}
-                            {{ category }}
-                            {% endfor %}]
-                        </span>
-                    </div>
-                </div>
             </li>
+            {% else %}
+            {% endif %}
             {% endfor %}
         </ul>
     </div>
