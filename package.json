@@ -14,6 +14,7 @@
         "nightwatch": "^1.3.6"
     },
     "scripts": {
+        "jekyll-install": "bundle install --path vendor/bundle",
         "serve": "bundle exec jekyll serve",
         "serve-drafts": "bundle exec jekyll serve --drafts",
         "test": "node_modules/mocha/bin/mocha \"./spec/unit/**/*.js\" ",
