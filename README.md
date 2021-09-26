@@ -1,5 +1,7 @@
 # README
 
+[![Build Status](https://app.travis-ci.com/mjourard/mjourard.github.io.svg?branch=master)](https://app.travis-ci.com/mjourard/mjourard.github.io)
+
 A portfolio site intended to show off the projects I've built in my personal time.
 
 ## Development

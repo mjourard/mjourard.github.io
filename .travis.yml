@@ -3,11 +3,12 @@ node_js:
     - 14
 script:
     - npm run test
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-    keep_history: true
-    on:
-        branch: master
-    target_branch: gh-pages
+# disabling deploy until it becomes necessary. Currently deploy is whatever is in master
+# deploy:
+#     provider: pages
+#     skip_cleanup: true
+#     github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+#     keep_history: true
+#     on:
+#         branch: master
+#     target_branch: gh-pages
