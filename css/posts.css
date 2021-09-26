@@ -24,3 +24,14 @@ figure.highlight > pre,
 pre.highlight {
     overflow-x: scroll;
 }
+/* TODO: make this responsive */
+div.post ul { padding-left: 40px; }
+div.post ol { padding-left: 40px; }
+
+div.post ul { list-style-type: disc; }
+div.post ul ul { list-style-type: circle; }
+div.post ul ul ul { list-style-type: square; }
+
+div.post ol { list-style-type: decimal; }
+div.post ul > li { list-style-type: inherit; }
+div.post ol > li { list-style-type: inherit; }
