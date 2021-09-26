@@ -30,13 +30,13 @@ If writing a draft, serve the local site with the --drafts flag
 The name of the Jekyll templating language is [Liquid](https://jekyllrb.com/docs/step-by-step/02-liquid/)
 
 ## css Framework
-The css framework used for this version is [materializecss](https://materializecss.com/getting-started.html)
+The css framework used for this version is [materializecss](https://materializecss.github.io/materialize/getting-started.html)
 
 To change the colour scheme of the site, do the following:
 
-1. update colours to whatever you're looking for in the file scss/components/_color-variables.scss
+1. update colours to whatever you're looking for in the file `scss/_materialize-color-variables-override.scss`
 
-2. edit the SASS file scss/components/_variables.scss, changing the colour variables
+2. edit the SASS file `scss/_materialize-variables-override.scss`, changing the colour variables
 
 3. compile the sass files into the final css distributable with the following command:
-`sass scss/materialize.scss css/materialize.css`
+`npm run css:compile`

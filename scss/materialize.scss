@@ -1,11 +1,13 @@
 @charset "UTF-8";
 
 // Color
-@import "components/color-variables";
+//@import "components/color-variables";
+@import "materialize-color-variables-override";
 @import "components/color-classes";
 
 // Variables;
-@import "components/variables";
+//@import "components/variables";
+@import "materialize-variables-override";
 
 // Reset
 @import "components/normalize";
