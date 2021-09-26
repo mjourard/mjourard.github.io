@@ -17,4 +17,4 @@ geckodriver.log
 
 # ruby gems stuff for jekyll
 .bundle
-vendor/bundle
+vendor

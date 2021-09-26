@@ -30,7 +30,12 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
+# TODO: make this sass section work since I think it outputs the file in _site/assets/main.css but
+# it didn't import/compile properly
+# sass:
+#   sass_dir: scss
+#   load_paths:
+#       - node_modules/@materializecss/materialize/sass
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -41,7 +46,7 @@ exclude:
   - composer.json
   - composer.lock
   - package.json
-  - yarn.lock
+  - package-lock.json
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
@@ -50,6 +55,8 @@ exclude:
   - vendor/twbs/
   - .idea/
   - test/
+  - .bundle/
+  - tests_output/
 
 permalink: /:categories/:year/:month/:day/:title
 collections:
