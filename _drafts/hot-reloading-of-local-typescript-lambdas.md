@@ -3,6 +3,8 @@ title: "Hot Reloading of Local Typescript Lambdas"
 tags: Typescript AWS Lambda Localstack Serverless Tooling
 ---
 
+## Intro
+
 At work, we wanted to be able to replicate our project's infrastructure locally to make debugging and integration testing easier.
 This was at the start of the project, where our tooling choices were still somewhat flexible. 
 For our Infrastructure-as-code tool, we went with the Serverless Framework (SLS) since our use case made sense for API Gateway-powered lambdas. 
@@ -16,9 +18,9 @@ To save some time, here's our toolchain, so you can decide if this article is bo
   * We will be launching our own localstack docker container and not using the one that the serverless-localstack plugin can spin up
 * AWS infrastructure Mocking: Localstack (v)
 
-Here is a link to an example repo with the full config files: 
+Here is a link to an example repo with the full config files: https://github.com/mjourard/typescript-hot-reloading-lambda-example
 
-As a good practice, you'll probably also want to clone this example repo and run it to make sure everything I'm saying in this article is still true. 
+You'll probably want to clone this repo and run it to make sure everything I'm saying in this article is still true. 
 
 We also used the following serverless plugins to make deploying to local and production seamless:
 * serverless-webpack
@@ -30,10 +32,26 @@ It's not ideal but it wasn't worth the trouble of having a more elegant workarou
 
 On to the settings. 
 
+## Main Config Files
 For our localstack docker container, you can use the following `docker-compose.yml` template:
 
+```yaml
+{% include hot-reloading-of-local-typescript-lambdas/docker-compose.yml %}
+``` 
 
+And the serverless template will look something like this:
 
+```yaml
+{% include hot-reloading-of-local-typescript-lambdas/serverless.yml %}
+```
+
+Finally, you'll need a simple webpack config file:
+
+```javascript
+{% include hot-reloading-of-local-typescript-lambdas/webpack.config.js %}
+```
+
+## Settings Explanation
 and the settings explained:
 
 #### ports
@@ -54,3 +72,4 @@ so that your local serverless aws environment is segregated from any of your oth
 Feel free to rename this network whatever you want. Just be sure to also update the network in the `LAMBDA_NETWORK` environment variable to match.
 
 
+## Conclusion
