@@ -2,7 +2,7 @@ service: typescript-local-lambda
 provider:
     name: aws
     runtime: nodejs14.x
-    stage: dev
+    stage: ${opt:stage, 'dev'}
     region: us-east-1
     stackName: typescript-local-lambda
     lambdaHashingVersion: '20201221'
@@ -37,7 +37,7 @@ plugins:
 
 functions:
     example:
-        handler: src/lambda.handler
+        handler: src/handler.hello
         events:
             - http:
                   path: hello
