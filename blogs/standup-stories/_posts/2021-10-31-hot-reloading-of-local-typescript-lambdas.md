@@ -254,7 +254,7 @@ When I navigate to that URL, I get the following output:
 With all of that done, we've got a local development environment.
 
 > **_NOTE:_**
-> The biggest thing to keep in mind is with the setting of `docker-compose.yml:services.localstack.environment.LAMBDA_EXECUTOR=docker-reuse`,
+> The biggest thing to keep in mind is with the setting of **LAMBDA_EXECUTOR=docker-reuse** within the **docker-compose.yml** file,
 > your lambda docker containers will not go down automatically when you stop your Localstack container.
 > You'll need to stop them manually
 
@@ -310,3 +310,5 @@ With that being said, there will come a time in a complex environment when it is
 Thank you to the contributors of the Serverless Framework as well as Localstack for making this possible.
 
 Happy coding!
+
+

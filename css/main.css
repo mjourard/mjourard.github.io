@@ -24,11 +24,11 @@ body {
     font-size: 15pt;
     line-height: 1.4;
 }
-
+/**
 p {
     max-width: 75ch;
 }
-
+*/
 nav {
     padding-left: 10px;
 }

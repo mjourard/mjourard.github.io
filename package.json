@@ -21,6 +21,8 @@
         "test": "mocha \"./spec/unit/**/*.js\" ",
         "func-test": "node_modules/nightwatch/bin/nightwatch \"./spec/func\"",
         "css:compile": "sass --load-path=node_modules/@materializecss/materialize/sass scss/materialize.scss css/materialize.css",
+        "css:compile:materialize": "sass --load-path=node_modules/@materializecss/materialize/sass scss/materialize/materialize.scss css/materialize.css",
+        "css:compile:posts": "sass scss/posts.scss css/posts.css",
         "build": "bundle exec jekyll build"
     },
     "mocha": {},
