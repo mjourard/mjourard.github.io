@@ -4,6 +4,9 @@ tags: Terraform IaC AWS Tooling
 ---
 
 TODO: proof read
+
+TODO: add table of contents that can be added to all posts in this series
+
 [Link to part one]({% post_url /standup-stories/2021-11-07-terraforming-our-infrastructure-p1 %})
 
 A quick update article on some issues we've encountered while ramping up on Terraform as well as how we solved them.
@@ -12,12 +15,12 @@ A quick update article on some issues we've encountered while ramping up on Terr
 
 Up until now, our dev team was entirely on macs.
 This changed when a new developer was transferred onto our team from a different part of the organization.
-Their previous team was focused on supporting a C# application, and so this new teammate had a Windows computer.
-I've had previous experience as a dev on a Windows machine and knew there would be a few gotchas to work out but it would be managable overall.
+Their previous team was focused on supporting a **C#** application, and so this new teammate had a Windows computer.
+I've had previous experience as a dev on a Windows machine and while I expected there to be a few "gotchas", I knew it would be manageable.
 
-We decided to get him setup with the Windows Subsystem for Linux as that would give him access to many of the other setup and support scripts we've developed for this project.
-Since they were new to Linux and the rest of the project's tech stack, we had them configure an instance of Ubuntu within WSL. 
-The WSL has come a long way since its initial launch, and now my only complaint at this time are the awful disk transfer times going from VM to host files.
+We decided to get him setup with the **Windows Subsystem for Linux (WSL)** as that would give him access to the setup and support scripts we've developed for this project.
+Since the developer was new to Linux and the rest of the project's tech stack, we had them configure an instance of **Ubuntu** within WSL. 
+The WSL has come a long way since its initial launch, and now my only complaint at this time are the awful disk transfer times from VM to host.
 Other than that, it can power a pretty solid dev environment. 
 
 Focusing on challenges with Terraform, the Windows + WSL setup did not co-operate with our hacked variable file setup that I mentioned [in part 1]({% post_url /standup-stories/2021-11-07-terraforming-our-infrastructure-p1 %}#variablestf).
@@ -27,7 +30,7 @@ We quickly converted the `.env` files to `.tfvars` files and noticed that their 
 
 A quick win and another story of getting bit in the butt for not doing things right the first time.
 
-I'll also note that they have ran into no issues with Terraform since we've converted to `.tfvars`, so kudoes to Hashicorp for making a solid piece of software.
+I'll also note that they have ran into no issues with Terraform since we've converted to `.tfvars`, so kudos to Hashicorp for making a solid piece of software.
 
 ## Storing State Files in us-east-1
 
@@ -71,4 +74,5 @@ You should then check that machine to make sure Terraform is no longer running.
 If it has, run the force-unlock command while in the workspace that is locked. 
 This is important and something I missed at first, as if you're not in the correct workspace, Terraform will tell you it can't find the lock or the lock is made of **invalid json**.
 
+TODO: add conclusion
 
