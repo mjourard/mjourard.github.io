@@ -7,6 +7,8 @@ TODO: proof read
 
 TODO: add table of contents that can be added to all posts in this series
 
+TODO: add an exerpt below the table of contents so that it renders correctly on the front page
+
 [Link to part one]({% post_url /standup-stories/2021-11-07-terraforming-our-infrastructure-p1 %})
 
 A quick update article on some issues we've encountered while ramping up on Terraform as well as how we solved them.
