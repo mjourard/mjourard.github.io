@@ -1,11 +1,9 @@
-<div class="hide-on-small-and-down">
-
+<div>
     <div class="toc-wrapper">
         <ul class="section table-of-contents">
             <h6>Other posts in this series...</h6>
             {% for post in site.posts %}
             {% if post.series_name contains include.series_name %}
-
             <li>
                 <a
                     class="{% if post.url == page.url %}active{% endif %}"
