@@ -18,7 +18,7 @@ This all culminated in trying to make my first maven plugin: [env-file-maven-plu
 
 The plugin looks for a dotenv (.env) file and loads its key/value pairs into environment variables during different phases of the maven build process.
 
-I needed this because I wanted to follow [12-factor app](https://12factor.net/) principles with a new project I was building, and I realized that all the suggestions I was reading for loading environment variables during the maven build phase didn't include reading from a file that I could easily `.gitignore`.
+I needed this because I wanted to follow [12-factor app](https://12factor.net/) principles with a new personal project I was building, and I realized that all the suggestions I was reading for loading environment variables during the maven build phase didn't include reading from a file that I could easily `.gitignore`.
 Specifically, I needed environment variable values for the tests executed during the `test` phase, which is executed when your run `mvn package`. 
 
 Yes, I could have made a copy of the `pom.xml` file, such as `pom.xml.dist` and then .gitignored that, but that looked really funky and wasn't something I had seen in any other java project. Rather than recognize it as a sign that I was doing something funky, I tried to bruteforce my way to do things wrong, and hopefully learn something along the way.

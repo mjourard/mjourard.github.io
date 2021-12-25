@@ -1,6 +1,7 @@
 ---
 title: "Terraforming Our Infrastructure - Part 1"
 tags: Terraform IaC AWS Tooling
+series_name: terraforming-our-infrastructure
 ---
 
 Being able to deploy your infrastructure in a consistent, repeatable way is an essential practice for any modern tech company.

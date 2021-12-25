@@ -20,7 +20,9 @@ add_css: /css/posts.css
         </div>
     </div>
 </div>
-
+{% if page.series_name %}
+    {% include series-table-of-contents.html series_name=page.series_name %}
+{% endif %}
 <div class="post">
     {{ content }}
 </div>
