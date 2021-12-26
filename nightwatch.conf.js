@@ -19,6 +19,8 @@ module.exports = {
   // See https://nightwatchjs.org/guide/#external-globals
   globals_path : '',
 
+    backwards_compatibility_mode: true,
+
   webdriver: {
       start_process: true,
       server_path: (Services.geckodriver ? Services.geckodriver.path : ''),
