@@ -8,22 +8,24 @@ terraform {
 }
 
 locals {
-  table_name  = join("-", ["user-tracking-info", var.unique_deployment_id])
+  table_name = join("-", ["user-tracking-info", var.unique_deployment_id])
 }
 
 resource "aws_dynamodb_table" "user-tracking-table" {
   name         = local.table_name
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
+  hash_key     = "HashedUserID"
+  range_key    = "LoadUnixTimestamp"
   attribute {
-    name = "LockID"
+    name = "HashedUserID"
     type = "S"
+  }
+  attribute {
+    name = "LoadUnixTimestamp"
+    type = "N"
   }
   ttl {
     attribute_name = "TimeToExist"
     enabled        = false
-  }
-  tags = {
-    Project = "Infrastructure"
   }
 }

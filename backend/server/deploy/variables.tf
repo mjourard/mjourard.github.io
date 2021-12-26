@@ -9,6 +9,6 @@ variable "stage" {
 }
 
 variable "developer" {
-    description: "(Required) The developer or entity that deployed this terraform state."
-    type = string
+  description = "(Required) The developer or entity that deployed this terraform state."
+  type        = string
 }

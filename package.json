@@ -23,7 +23,13 @@
         "css:compile": "sass --load-path=node_modules/@materializecss/materialize/sass scss/materialize.scss css/materialize.css",
         "css:compile:materialize": "sass --load-path=node_modules/@materializecss/materialize/sass scss/materialize/materialize.scss css/materialize.css",
         "css:compile:posts": "sass scss/posts.scss css/posts.css",
-        "build": "bundle exec jekyll build"
+        "build": "bundle exec jekyll build",
+        "backend:server:tf:init": "terraform -chdir=\"backend/server/deploy\" init",
+        "backend:server:tf:workspace:create": "terraform -chdir=\"backend/server/deploy\" workspace new $STAGE:$DEVELOPER:$AWS_DEFAULT_REGION",
+        "backend:server:tf:workspace:select": "terraform -chdir=\"backend/server/deploy\" workspace select $STAGE:$DEVELOPER:$AWS_DEFAULT_REGION",
+        "backend:server:tf:workspace:list": "terraform -chdir=\"backend/server/deploy\" workspace list",
+        "backend:server:tf:apply": "terraform -chdir=\"backend/server/deploy\" apply -var-file=\"env.tfvars\"",
+        "backend:server:tf:format": "terraform -chdir=\"backend/server/deploy\" fmt -recursive"
     },
     "mocha": {},
     "dependencies": {
