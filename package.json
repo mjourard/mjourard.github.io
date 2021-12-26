@@ -7,12 +7,12 @@
     "license": "MIT",
     "private": false,
     "devDependencies": {
-        "chromedriver": "^79.0.3",
+        "chromedriver": "^96.0.0",
         "esm": "^3.2.25",
         "geckodriver": "^2.0.4",
         "mocha": "^6.2.3",
-        "nightwatch": "^1.7.11",
-        "sass": "^1.42.1"
+        "nightwatch": "^1.7.13",
+        "sass": "^1.45.1"
     },
     "scripts": {
         "jekyll-install": "bundle install --path vendor/bundle",
