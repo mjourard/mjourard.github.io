@@ -18,7 +18,7 @@ Since the developer was new to Linux and the rest of the project's tech stack, w
 The WSL has come a long way since its initial launch, and now my only complaint at this time are the awful disk read/write times from the VM to the host machine.
 Other than that, it can power a pretty solid dev environment. 
 
-Focusing on challenges with Terraform, the Windows + WSL setup did not co-operate with our hacked variable file setup that I mentioned [in part 1]({% post_url /standup-stories/2021-11-07-terraforming-our-infrastructure-p1 %}#variablestf).
+Focusing on challenges with Terraform, the Windows + WSL setup did not co-operate with our hacked variable file setup that I mentioned [in part 1]({% post_url 2021-11-07-terraforming-our-infrastructure-p1 %}#variablestf).
 The values did not export to environment variables correctly, and so when they tried to run terraform, they were met with incorrect value types caused by line-ending errors. 
 Not a fun experience.
 We quickly converted the `.env` files to `.tfvars` files and noticed that their issues went away completely; they were able to deploy the Terraform modules themselves.
