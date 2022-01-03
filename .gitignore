@@ -10,6 +10,7 @@ _site/
 # local development assets
 .sass-cache
 node_modules/
+.serverless
 
 # testing output
 tests_output/
