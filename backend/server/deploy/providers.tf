@@ -19,7 +19,7 @@ provider "aws" {
       Developer   = var.developer
       Owner       = "Ops"
       Managed     = "Terraform"
-      Commit      = data.git_repository.tf.branch
+      Commit      = replace(data.git_repository.tf.branch, "/[#]+/", "_")
     }
   }
 }

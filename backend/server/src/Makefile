@@ -1,6 +1,6 @@
-.PHONY: build clean deploy gomodgen
+.PHONY: build clean deploy
 
-build: gomodgen
+build:
 	export GO111MODULE=on
 	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/page-load page-load/main.go
 	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/world world/main.go
@@ -11,6 +11,3 @@ clean:
 deploy: clean build
 	sls deploy --verbose
 
-gomodgen:
-	chmod u+x gomod.sh
-	./gomod.sh
