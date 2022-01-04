@@ -1,14 +1,16 @@
+os: linux
+dist: xenial
 language: node_js
 node_js:
     - 14
 script:
     - npm run test
-# disabling deploy until it becomes necessary. Currently deploy is whatever is in master
- deploy:
-     provider: pages
-     skip_cleanup: true
-     github_token: $PERSONAL_GITHUB_ACCESS_TOKEN  # Set in the settings page of your repository, as a secure variable
-     keep_history: true
-     on:
-         branch: master
-     target_branch: gh-pages
+deploy:
+    strategy: git
+    provider: pages
+    skip_cleanup: true
+    token: $PERSONAL_GITHUB_ACCESS_TOKEN
+    keep_history: true
+    on:
+        branch: master
+    target_branch: gh-pages
