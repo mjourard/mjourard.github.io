@@ -5,12 +5,14 @@ node_js:
     - 14
 script:
     - npm run test
+    - npm run css:compile
+    - npm run backend:client:build
 deploy:
     strategy: git
     provider: pages
     skip_cleanup: true
     github_token: $PERSONAL_GITHUB_ACCESS_TOKEN
-    keep_history: true
+    keep_history: false
     on:
         branch: master
     target_branch: gh-pages
