@@ -10,8 +10,6 @@ import (
 
 var headersToLog = [...]string{"Referer", "X-Forwarded-For"}
 
-type HandlerFunc func(context.Context, events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error)
-
 // Logging the extra set of instructions
 // things to be done before running the business logic
 func Logging(f HandlerFunc) HandlerFunc {

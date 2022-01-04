@@ -59,5 +59,13 @@ func Handler(ctx context.Context, event events.APIGatewayProxyRequest) (events.A
 }
 
 func main() {
-	lambda.Start(middleware.Logging(Handler))
+	lambda.Start(
+		middleware.Logging(
+			middleware.Cors(
+				middleware.JsonResponse(
+					Handler,
+				),
+			),
+		),
+	)
 }

@@ -30,6 +30,7 @@ func StandardLambdaLogger(ctx context.Context, logLevelEnvVarName string) *mmlog
 		lc, _ := lambdacontext.FromContext(ctx)
 		logger := logrus.New()
 		logger.SetOutput(os.Stdout)
+		logger.SetReportCaller(true)
 		logger.SetFormatter(loggerWithFields{
 			defaultFields: map[string]string{
 				"request_id": lc.AwsRequestID,

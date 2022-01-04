@@ -7,6 +7,8 @@ import (
 type PageLoad struct {
 	HashedUserID          string    `json:"HashedUserID"`
 	UrlLoaded             string    `json:"UrlLoaded"`
+	Origin                string    `json:"Origin"`
+	Path                  string    `json:"Path"`
 	Referrer              string    `json:"Referrer"`
 	XForwardedFor         string    `json:"XForwardedFor"`
 	ScreenWidth           int64     `json:"ScreenWidth"`

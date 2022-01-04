@@ -3,10 +3,11 @@ package pkg
 import "os"
 
 const (
-	EnvTrackingTableName = "DYNAMO_TRACKING_TABLE"
-	EnvLogLevel          = "LOG_LEVEL"
-	EnvAWSEndpoint       = "AWS_ENDPOINT"
-	EnvStage             = "STAGE"
+	EnvTrackingTableName  = "DYNAMO_TRACKING_TABLE"
+	EnvLogLevel           = "LOG_LEVEL"
+	EnvAWSEndpoint        = "AWS_ENDPOINT"
+	EnvStage              = "STAGE"
+	EnvCorsAllowedOrigins = "CORS_ALLOWED_ORIGINS"
 )
 
 func IsUserFacing() bool {
