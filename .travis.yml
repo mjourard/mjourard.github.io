@@ -9,7 +9,7 @@ deploy:
     strategy: git
     provider: pages
     skip_cleanup: true
-    token: $PERSONAL_GITHUB_ACCESS_TOKEN
+    github_token: $PERSONAL_GITHUB_ACCESS_TOKEN
     keep_history: true
     on:
         branch: master
