@@ -11,7 +11,7 @@ _site/
 .sass-cache
 node_modules/
 .serverless
-dist
+
 
 # testing output
 tests_output/
