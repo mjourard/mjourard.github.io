@@ -3,7 +3,7 @@ variable "stage" {
   type        = string
   default     = "dev"
   validation {
-    condition     = contains(["dev", "test", "stage", "production"], var.stage)
+    condition     = contains(["dev", "test", "stage", "prod"], var.stage)
     error_message = "Unsupported selected stage. Must be one of 'dev', 'stage', 'test', 'production'."
   }
 }

@@ -1,0 +1,85 @@
+service: blog-api
+
+frameworkVersion: '2'
+variablesResolutionMode: 20210326
+
+provider:
+    name: aws
+    runtime: go1.x
+    lambdaHashingVersion: 20201221
+    stage: ${env:STAGE, 'dev'}
+    region: ${env:AWS_DEFAULT_REGION, 'us-east-2'}
+    iam:
+        role:
+            statements:
+                -   Effect: "Allow"
+                    Action:
+                        - "dynamodb:GetItem"
+                        - "dynamodb:PutItem"
+                        - "dynamodb:Query"
+                        - "dynamodb:Scan"
+                        - "dynamodb:UpdateItem"
+                    Resource: ${ssm:${self:custom.SSM_PREFIX}/DYNAMO_TRACKING_TABLE_ARN}
+    environment:
+        DYNAMO_TRACKING_TABLE: ${ssm:${self:custom.SSM_PREFIX}/DYNAMO_TRACKING_TABLE}
+        LOG_LEVEL: ${env:LOG_LEVEL, 'info'}
+        STAGE: ${self:provider.stage}
+        CORS_ALLOWED_ORIGINS: '${self:custom.CORS.ALLOWED_ORIGINS_STR}'
+    httpApi:
+        payload: '1.0'
+        cors:
+            allowedOrigins: ${self:custom.CORS.ALLOWED_ORIGINS}
+            allowedMethods:
+                - GET
+                - OPTIONS
+                - POST
+                - DELETE
+            allowedHeaders:
+                - Content-Type
+                - Accept-Encoding
+                - X-Bearer-Token
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - X-Amz-User-Agent
+                - Accept-Language
+                - Expires
+                - ses
+                - Prev-Referrer
+                - Referer
+                - X-Forwarded-For
+custom:
+    SSM_PREFIX: /${env:STAGE}/${self:service}
+    CORS:
+        ALLOWED_ORIGINS: ${file(./backend/server/deploy/serverless/cors_allowed_origins.js):getAllowedOrigins}
+        ALLOWED_ORIGINS_STR: ${file(./backend/server/deploy/serverless/cors_allowed_origins.js):getAllowedOriginsStr}
+
+package:
+    patterns:
+        - '!./**'
+        - ./backend/server/src/bin/**
+
+functions:
+    cors:
+        handler: backend/server/src/bin/cors
+        events:
+            -   httpApi:
+                    path: '/{proxy+}'
+                    method: options
+    tracking:
+        handler: backend/server/src/bin/page-load
+        events:
+            -   httpApi:
+                    path: /page-load
+                    method: get
+#resources:
+#  Resources:
+#    NewResource:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"
