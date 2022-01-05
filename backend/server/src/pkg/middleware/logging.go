@@ -6,9 +6,10 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/mjourard/tracking/pkg"
 	"github.com/mjourard/tracking/pkg/api"
+	"strings"
 )
 
-var headersToLog = [...]string{"Referer", "X-Forwarded-For"}
+var headersToLog = [...]string{"Referer", "X-Forwarded-For", "Origin"}
 
 // Logging the extra set of instructions
 // things to be done before running the business logic
@@ -19,6 +20,8 @@ func Logging(f HandlerFunc) HandlerFunc {
 		for _, header := range headersToLog {
 			if val, ok := r.Headers[header]; ok {
 				headerMap[header] = val
+			} else if val2, ok2 := r.Headers[strings.ToLower(header)]; ok2 {
+				headerMap[strings.ToLower(header)] = val2
 			} else {
 				headerMap[header] = "no-header-found"
 			}

@@ -30,7 +30,8 @@ func StandardLambdaLogger(ctx context.Context, logLevelEnvVarName string) *mmlog
 		lc, _ := lambdacontext.FromContext(ctx)
 		logger := logrus.New()
 		logger.SetOutput(os.Stdout)
-		logger.SetReportCaller(true)
+		//leave this as false since it is just adding the file that logrus is being called from, which is somewhere in Masterminds/log-go
+		logger.SetReportCaller(false)
 		logger.SetFormatter(loggerWithFields{
 			defaultFields: map[string]string{
 				"request_id": lc.AwsRequestID,
