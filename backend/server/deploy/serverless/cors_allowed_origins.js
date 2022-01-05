@@ -1,13 +1,23 @@
-const allowedOrigins = [
+const allowedOriginsProd = [
     'https://mjourard.github.io',
+]
+const allowedOriginsDev = [
     'http://127.0.0.1:4000'
 ]
 
-const getAllowedOrigins = () => {
+const getAllowedOrigins = async ({options, resolveVariable }) => {
     const onlyUnique = (value, index, self) => {
         return self.indexOf(value) === index;
     }
-    return allowedOrigins.filter(onlyUnique);
+    const stage = await resolveVariable('self:provider.stage');
+    switch(stage) {
+        case 'prod':
+            return allowedOriginsProd.filter(onlyUnique);
+        case 'dev':
+        default:
+            return allowedOriginsDev.filter(onlyUnique);
+    }
+
 }
 
 const getAllowedOriginsStr = async ({options, resolveVariable }) => {

@@ -50,7 +50,7 @@ provider:
                 - Referer
                 - X-Forwarded-For
 custom:
-    SSM_PREFIX: /${env:STAGE}/${self:service}
+    SSM_PREFIX: /${self:provider.stage}/${self:service}
     CORS:
         ALLOWED_ORIGINS: ${file(./backend/server/deploy/serverless/cors_allowed_origins.js):getAllowedOrigins}
         ALLOWED_ORIGINS_STR: ${file(./backend/server/deploy/serverless/cors_allowed_origins.js):getAllowedOriginsStr}
