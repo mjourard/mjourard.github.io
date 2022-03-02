@@ -103,13 +103,14 @@ I'll also be adding the Terraform workspace name to the default tags in the AWS 
 A lesson I'll be taking away from this is to remember that there will be two classes of teammates/colleagues/devs that you will need to support when adopting a new technology into your normal development workflow.
 The classes are the developers with the capacity to become intimately familiar with the new tool, and those without. 
 If it's a tool for developers, then all devs will be capable of learning how to use it and how it works.
-That being said, any number of other commitments might be higher on their list of TODOs than learning the tool.
+That being said, any number of other commitments might be higher on their personal list of TODOs than learning the tool.
 They are still going to need to know how to use the tool in order to increase their productivity past what they were doing before the new tool was introduced.
 
 For the class of devs that will become intimately familiar with the tool, value *flexibility*.
 For the class of devs that won't, value *simplicity*.
 Unless the ratio of familiar to unfamiliar devs is heavily skewed towards the familiar, you should favour tooling implementations that create simple workflows.
 This is because the familiar devs can _eventually contribute_ the flexibility features that are missing, while the unfamiliar devs likely cannot help simplify the workflows.
+And as with all things in development, the above guidelines should be taken with a few grains of salt since every team and tool is different.
 
 ## tl;dr
 
