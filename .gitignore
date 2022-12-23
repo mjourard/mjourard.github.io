@@ -1,0 +1,22 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+# IDE stuff
+.idea/
+
+# jekyll stuff
+_site/
+.jekyll-metadata
+
+# local development assets
+.sass-cache
+node_modules/
+.serverless
+
+
+# testing output
+tests_output/
+geckodriver.log
+
+# ruby gems stuff for jekyll
+.bundle
+vendor

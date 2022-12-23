@@ -1,0 +1,71 @@
+@import "generic_warning";
+
+img {
+    padding:1px;
+    border:1px solid #021a40;
+    background-color:#ff0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+div.highlighter-rouge,
+code.highlighter-rouge,
+figure.highlight {
+    background-color: #D4D4D4;
+    border: 2px solid #B0B0B0;
+}
+
+div.highlighter-rouge,
+figure.highlight {
+    /*padding: 8px 8px 10px 10px;*/
+    padding: 8px;
+    border-radius: 10px;
+}
+
+
+@mixin maxwidth($min-width, $max-width, $max-width-characters, $font-size) {
+    @media all and (min-width: $min-width) and (max-width: $max-width) {
+        div.main-content {
+            max-width: $max-width-characters;
+            font-size: $font-size
+        }
+    }
+}
+
+@include maxwidth(0px, 480px, 50ch, 13pt);
+@include maxwidth(481px, 920px, 75ch, 14pt);
+@include maxwidth(921px, 9999px, 150ch, 15pt);
+
+figure.highlight > pre,
+pre.highlight {
+    overflow-x: scroll;
+}
+
+/* TODO: make this responsive */
+$list-left-indent: 40px;
+div.post {
+    ul {
+        padding-left: $list-left-indent;
+        list-style-type: disc;
+        ul {
+            list-style-type: circle;
+            ul {
+                list-style-type: square;
+            }
+        }
+        > {
+            li {
+                list-style-type: inherit;
+            }
+        }
+    }
+    ol {
+        padding-left: $list-left-indent;
+        list-style-type: decimal;
+        > {
+            li {
+                list-style-type: inherit;
+            }
+        }
+    }
+}

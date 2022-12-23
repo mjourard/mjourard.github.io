@@ -1,0 +1,38 @@
+---
+layout: default
+title: Untitled Blog
+nav_name: untitled-blog
+---
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <h2>{{ page.title }}</h2>
+    </div>
+    <div class="col s12 m6 offset-m3">
+        <p>{{ page.p1 }}</p>
+        <p>{{ page.p2 }} </p>
+    </div>
+</div>
+<div class="divider"></div>
+<div class="row">
+    <div class="col s12 offset-m3 m6">
+        <ul class="posts collections">
+            {% for post in site.posts %}
+            {% if post.categories contains page.nav_name %}
+            <li class="collection-item">
+                <div class="row show-on-medium-and-up hide-on-small-only">
+                    <div class="col m8 left-align"><a href="{{ post.url }}" title="{{ post.title }}">{{
+                        post.title }}</a></div>
+                    <div class="col m4 right-align">{{ post.date | date_to_string }}</div>
+                </div>
+                <div class="row show-on-small hide-on-med-and-up">
+                    <div class="col s12"><a href="{{ post.url }}" title="{{ post.title }}">{{
+                        post.title }}</a></div>
+                    <div class="col s11 offset-s1 grey-text text-darken-1">- {{ post.date | date_to_string }}</div>
+                </div>
+            </li>
+            {% else %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>

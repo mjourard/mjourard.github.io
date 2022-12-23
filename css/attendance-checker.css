@@ -1,0 +1,14 @@
+textarea.attendance-checker__textarea__max-rows.materialize-textarea {
+    overflow-y: scroll;
+    height: 300px;
+    resize: none;
+    border: 1px solid grey;
+}
+
+.attendance-checker__div__col-header {
+    font-weight: bold;
+}
+
+.attendance-checker__div__leader {
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="https://www.w3.org/2005/Atom">
+	<title>Matt Jourard's Blog</title>
+	<link href="{{ site.url }}blog/atom.xml" rel="self"/>
+	<link href="{{ site.url }}blog"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>{{ site.url }}blog</id>
+	<author>
+		<name>Matt Jourard</name>
+		<email>{{ site.email }}</email>
+	</author>
+	{%- for post in site.posts -%}
+		<entry>
+			<title>{{ post.title }}</title>
+			<link href="https://mjourard.github.io{{ post.url }}"/>
+			<updated>{{ post.date | date_to_xmlschema }}</updated>
+			<id>https://mjourard.github.io{{ post.id }}</id>
+			<content type="html">{{ post.content | xml_escape }}</content>
+		</entry>
+	{%- endfor -%}
+</feed>

@@ -1,0 +1,52 @@
+{
+    "name": "mjourard.github.io",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:mjourard/mjourard.github.io.git",
+    "author": "matt.jourard <mjourard@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "chromedriver": "^96.0.0",
+        "dotenv": "^10.0.0",
+        "esm": "^3.2.25",
+        "geckodriver": "^3.0.2",
+        "html-webpack-plugin": "^5.5.0",
+        "mocha": "^9.2.2",
+        "nightwatch": "^2.5.1",
+        "sass": "^1.45.1",
+        "serverless": "^3.22.0",
+        "webpack": "^5.65.0",
+        "webpack-cli": "^4.9.1"
+    },
+    "scripts": {
+        "jekyll-install": "bundle install --path vendor/bundle",
+        "serve": "bundle exec jekyll serve",
+        "serve-drafts": "bundle exec jekyll serve --drafts",
+        "test": "mocha \"./spec/unit/**/*.js\" ",
+        "func-test": "node_modules/nightwatch/bin/nightwatch \"./spec/func\"",
+        "css:compile": "npm run css:compile:materialize && npm run css:compile:posts",
+        "css:compile:materialize": "sass --load-path=node_modules/@materializecss/materialize/sass scss/materialize/materialize.scss css/materialize.css",
+        "css:compile:posts": "sass scss/posts.scss css/posts.css",
+        "build": "bundle exec jekyll build",
+        "backend:server:tf:init": "terraform -chdir=\"backend/server/deploy/terraform\" init",
+        "backend:server:tf:workspace:create": "terraform -chdir=\"backend/server/deploy/terraform\" workspace new $STAGE:$DEVELOPER:$AWS_DEFAULT_REGION",
+        "backend:server:tf:workspace:select": "terraform -chdir=\"backend/server/deploy/terraform\" workspace select $STAGE:$DEVELOPER:$AWS_DEFAULT_REGION",
+        "backend:server:tf:workspace:list": "terraform -chdir=\"backend/server/deploy/terraform\" workspace list",
+        "backend:server:tf:apply": "terraform -chdir=\"backend/server/deploy/terraform\" apply -var-file=\"env.tfvars\"",
+        "backend:server:tf:format": "terraform -chdir=\"backend/server/deploy/terraform\" fmt -recursive",
+        "backend:server:tf:destroy": "terraform -chdir=\"backend/server/deploy/terraform\" destroy -var-file=\"env.tfvars\"",
+        "backend:server:build": "cd backend/server/src && make",
+        "backend:server:deploy": "serverless deploy",
+        "backend:client:build": "webpack --config webpack.config.js --env stage=production",
+        "backend:client:watch": "webpack --config webpack.config.js --env stage=development --watch"
+    },
+    "mocha": {},
+    "dependencies": {
+        "@materializecss/materialize": "^1.1.0-alpha",
+        "axios": "^0.24.0"
+    },
+    "engines": {
+        "node": "^14.0.0"
+    }
+}

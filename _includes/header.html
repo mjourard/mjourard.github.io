@@ -1,0 +1,30 @@
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo hide-on-small-only"><img src="/assets/img/mj-logo-small.png"
+                    alt="matt-jourard-site-logo" class="logo-small"> Jourard</a>
+            <a href="/" class="brand-logo hide-on-med-and-up">Jourard</a>
+            <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li {% if page.nav_name==null %} class="active" {% endif %}><a href="/">Home</a></li>
+                <li {% if page.nav_name=='cv' %} class="active" {% endif %}><a
+                        href="/assets/pdf/for_github_2020_04_03.pdf" download="matt_jourard_resume.pdf">Résumé</a></li>
+                <li {% if page.nav_name=='standup-stories' %} class="active" {% endif %}><a
+                        href="/blogs/standup-stories">Standup Stories</a></li>
+                <li><a target="_blank" href="https://github.com/mjourard">Github</a></li>
+                <li {% if page.nav_name=='tools' %} class="active" {% endif %}><a href="/tools">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<ul class="sidenav" id="mobile-sidenav">
+    <li {% if page.nav_name==null %} class="active" {% endif %}><a href="/">Home</a></li>
+    <li {% if page.nav_name=='cv' %} class="active" {% endif %}><a href="/assets/pdf/for_github_2020_04_03.pdf"
+            download="matt_jourard_resume.pdf">Résumé</a></li>
+    <li {% if page.nav_name=='standup-stories' %} class="active" {% endif %}><a href="/blogs/standup-stories">Standup
+            Stories</a></li>
+    <li {% if page.nav_name=='fight-journal' %} class="active" {% endif %}><a href="/blogs/fight-journal">Fight
+            Journal</a></li>
+    <li><a target="_blank" href="https://github.com/mjourard">Github</a></li>
+    <li {% if page.nav_name=='tools' %} class="active" {% endif %}><a href="/tools">Tools</a></li>
+</ul>

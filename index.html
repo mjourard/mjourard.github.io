@@ -1,0 +1,72 @@
+---
+layout: default
+title: Matt Jourard|Forgetting Semicolons Since 2011
+---
+<div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="row align-wrapper valign-wrapper">
+            <div class="col s4">
+                <img src="/assets/img/BrandProfilePic.jpg" alt="" class="circle responsive-img">
+            </div>
+            <div class="col s8 ">
+              <h3 class="black-text ">
+                Hi, I'm Matt! I'm a web developer and I like to use AWS.
+              </h3>
+            </div>
+        </div>
+        <div class="row valign-stretch">
+            <div class="col s12 m12 l6">
+                <div class="card">
+                    <div class="card-content">
+                        <h5 class="center-align">Projects</h5>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#project_card_2">Trick Or Eat</a></li>
+                            <li class="tab"><a href="#project_card_1">Family Photos</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <div id="project_card_2">
+                            <p>An app I made in school for running the annual door-to-door Halloween food drive,
+                                Trick-or-Eat.</p>
+                            <p>Hosted on AWS and powered by Cloudfront, S3, API Gateway, Lambda, SES and RDS Aurora
+                                Serverless.</p>
+                            <div class="card-action">
+                                <div class="container-flex-horizontal">
+                                    <a class="green-text text-darken-1" href="https://guelphtrickoreat.ca">Demo</a>
+                                    <a class="green-text text-darken-1" href="https://github.com/mjourard/trick-or-eat-demo">Github</a>
+                                    <a class="green-text text-darken-1" href="{{site.url}}/blog/2020/06/01/what-was-trick-or-eat">Blog</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="project_card_1">
+                            <p>A react app for viewing photos with the intended look of opening up the family photo
+                                album</p>
+                            <div class="card-action text-accent-3">
+                                <a class="green-text text-darken-1" href="https://mjourard.github.io/family-photos/">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m12 l6 ">
+                <div class="card ">
+                    {%- assign latest_post = site.posts | sort: "date" | last -%}
+                    <div class="card-content">
+                        <span class="card-title">{{ latest_post.title }}</span>
+                        <p class="post-date">- {{ latest_post.date | date_to_string }}</p>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <p>{{ latest_post.excerpt }}</p>
+                    </div>
+                    <a class="green-text text-darken-1" href="{{ latest_post.url }}">
+                        <div class="card-action grey lighten-3 hoverable">
+                            Read More...
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

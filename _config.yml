@@ -1,0 +1,91 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Matt Jourard|Forgetting Semi-colons Since 2011
+email: mjourard@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+    This is my personal site that will act as both a portfolio of sorts as well as a home for personal tools
+    for the foreseeable future.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://mjourard.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jourardmatt
+github_username: mjourard
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+    - jekyll-feed
+    - jekyll-sitemap
+    - jekyll-seo-tag
+# TODO: make this sass section work since I think it outputs the file in _site/assets/main.css but
+# it didn't import/compile properly
+sass:
+    sass_dir: scss
+    load_paths:
+        - node_modules/@materializecss/materialize/sass
+    sourcemap: always
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+include:
+    - node_modules/@materializecss
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - node_modules/
+    - composer.json
+    - composer.lock
+    - package.json
+    - package-lock.json
+    - vendor/bundle/
+    - vendor/cache/
+    - vendor/gems/
+    - vendor/ruby/
+    - vendor/components/
+    - vendor/twbs/
+    - .idea/
+    - test/
+    - .bundle/
+    - tests_output/
+    - backend/
+    - webpack.config.js
+    - serverless.yml
+    - .serverless
+
+permalink: /:categories/:year/:month/:day/:title
+collections:
+    tools:
+        output: true
+# Gives all posts in the _posts and _drafts folders the frontmatter variables found in the "values" section
+defaults:
+    -   scope:
+            path: ""
+            type: "posts"
+        values:
+            layout: "post"
+            add_css: "/css/posts.css"
+    -   scope:
+            path: "blogs/fight-journal"
+            type: "posts"
+        values:
+            layout: "fight-journal-post"
+            add_css: "/css/posts.css"
+    -   scope:
+            path: ""
+            type: "drafts"
+        values:
+            layout: "post"
+            add_css: "/css/posts.css"

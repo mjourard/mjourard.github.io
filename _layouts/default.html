@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ page.title }}</title>
+    {% include head.html %}
+    <!-- link to main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    {% if page.add_css %}
+        <link rel="stylesheet" type="text/css" href="{{ page.add_css }}">
+    {% endif %}
+    {% feed_meta %}
+    {% seo %}
+</head>
+<body>
+{% include header.html %}
+<div class="container main-content">
+
+    {{ content }}
+
+</div><!-- /.container -->
+{% include footer.html %}
+<!-- Compiled and minified JavaScript -->
+<script src="/js/materialize.min.js"></script>
+</body>
+</html>

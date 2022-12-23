@@ -1,0 +1,44 @@
+service: typescript-local-lambda
+provider:
+    name: aws
+    runtime: nodejs14.x
+    stage: ${opt:stage, 'dev'}
+    region: us-east-1
+    stackName: typescript-local-lambda
+    lambdaHashingVersion: '20201221'
+
+custom:
+    localstack:
+        debug: true
+        stages:
+            - local
+        host: http://localhost
+        edgePort: 4570
+        autostart: false
+        networks:
+            - host
+            - overlay
+            - typescript_local_lambda
+        lambda:
+            mountCode: true
+        docker:
+            sudo: false
+    webpack:
+        webpackConfig: 'webpack.config.js'
+        includeModules: false
+        packager: 'npm'
+        keepOutputDirectory: true # Needed for the hot reloading
+    stages:
+        local:
+
+plugins:
+    - serverless-webpack
+    - serverless-localstack # your compilation plugins must come before the localstack plugin
+
+functions:
+    example:
+        handler: src/handler.hello
+        events:
+            - http:
+                  path: hello
+                  method: get
